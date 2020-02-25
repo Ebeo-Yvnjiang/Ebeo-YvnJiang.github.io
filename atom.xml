@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-02-25T12:14:45.742Z</updated>
+    <updated>2020-02-25T12:19:30.255Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -319,8 +319,8 @@ void floyd(){
 <h1 id="day-2">Day 2</h1>
 <p>上课颓废。</p>
 <p><s>-1天好评</s></p>
-<p>$ PET $也考完了，可以<s>颓废</s>备考复赛了。</p>
-<p>预计$ AFO $。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>E</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">PET</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>也考完了，可以<s>颓废</s>备考复赛了。</p>
+<p>预计<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>F</mi><mi>O</mi></mrow><annotation encoding="application/x-tex">AFO</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span></span></span></span>。</p>
 <h1 id="好了此游记就这样结束了">好了，此游记就<s>这样</s>结束了……</h1>
 <h1 id="后记">后记：</h1>
 <p><a href="https://studyingfather.blog.luogu.org/frequent-bugs">这</a>是复赛的要点，如果犯了我就女装!!!</p>
