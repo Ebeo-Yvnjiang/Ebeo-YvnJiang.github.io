@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-02-25T11:13:20.755Z</updated>
+    <updated>2020-02-25T12:14:19.542Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -393,7 +393,7 @@ bool dfs(int now);
         <link href="https://ebeo-yvnjiang.github.io/post/about/">
         </link>
         <updated>2020-02-25T09:03:19.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/Ebeo-Yvnjiang/Ebeo-YvnJiang.github.io/master/images/QAQ.JPG" alt="" loading="lazy"></figure>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/02/25/Kj495UZn7Np6slC.jpg" alt="" loading="lazy"></figure>
 <h1 id="qwq">qwq</h1>
 ]]></content>
     </entry>
