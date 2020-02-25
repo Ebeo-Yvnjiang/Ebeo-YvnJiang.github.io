@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-02-25T09:09:42.715Z</updated>
+    <updated>2020-02-25T11:12:28.178Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -10,6 +10,262 @@
     <logo>https://ebeo-yvnjiang.github.io/images/avatar.png</logo>
     <icon>https://ebeo-yvnjiang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Billy2007&amp;GoneTimeの世界</rights>
+    <entry>
+        <title type="html"><![CDATA[BF算法]]></title>
+        <id>https://ebeo-yvnjiang.github.io/post/bf-suan-fa/</id>
+        <link href="https://ebeo-yvnjiang.github.io/post/bf-suan-fa/">
+        </link>
+        <updated>2020-02-25T11:12:13.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ns &quot;-1&quot;
+#define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)
+#define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)
+#define ll long long
+#define ull unsigned long long
+#define db double
+#define ms(a,b) memset(a,b,sizeof(a))
+#define sz(a) sizeof(a)
+using namespace std;
+const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};
+const int N=100001,inf=0x7f7f7f7f;
+int n,m,f,flg,k;//f：第一次出现的位置；k：出现的总次数；
+char s[N],p[N];//s：总串；p：模式串。
+//无解输出0 0
+int main(){
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+    cout.tie(0);
+    cin&gt;&gt;n&gt;&gt;(s+1)&gt;&gt;m&gt;&gt;(p+1);
+    fs(start,1,(n-m+1),1){
+    	flg=0;
+    	fs(q,start,(start+m-1),1){//逐个比较
+    		//cout&lt;&lt;&quot;q:&quot;&lt;&lt;' '&lt;&lt;q&lt;&lt;' '&lt;&lt;s[q]&lt;&lt;' '&lt;&lt;p[q-start+1]&lt;&lt;endl;
+    		if(s[q]!=p[q-start+1]){
+    			flg=1;break;
+			}
+		}
+		if(flg==0){
+			if(f==0) f=start;
+			k++;
+		} 
+	}
+	cout&lt;&lt;f&lt;&lt;' '&lt;&lt;k;
+	return 0;
+}
+//O((N-M)M)=O(NM-M^2)=O(NM)
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一个神秘的东西]]></title>
+        <id>https://ebeo-yvnjiang.github.io/post/yi-ge-shen-mi-de-dong-xi/</id>
+        <link href="https://ebeo-yvnjiang.github.io/post/yi-ge-shen-mi-de-dong-xi/">
+        </link>
+        <updated>2020-02-25T11:11:33.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1总则">1.总则</h1>
+<pre><code>    该体系建立于四维空间，适用于所有有一定思考能力的动物。
+    适用于思维等级0.63以上的生物。
+</code></pre>
+<h1 id="2魂灵">2.魂灵</h1>
+<pre><code>    魂灵是附身于意识体上，受强烈外界控制，却永远不会死亡的四维物体。
+    魂灵与“灵体”是相对的物质。
+    躯体是实的，但魂灵是虚的。
+    魂灵与能量并行，但会被外界压力分裂。
+    魂灵趋于熵增或熵减与分意识体熵增或熵减有一定关系（与灵的“意识体”）相同。
+    魂灵可以操纵大约为12J或释放含熵的能量。
+    魂灵存在，但是虚的（如i）。
+    （By 灵空）因为魂灵是一个普通且无增熵的物质，所以魂灵不会死。
+</code></pre>
+<h1 id="3意识体">3.意识体</h1>
+<pre><code>    意识体与魂灵相对应（就像♂与♀一样）。
+    意识体附身于魂灵上。
+    意识体是虚的，且不会分裂，并且不是单独的个体。
+    意识体会在该意识体相属魂灵死亡后合并/死亡。
+    意识体可以重生（不会忽然冒出来，但不会永久死亡），重生条件：有可以合并的魂灵与其接触。
+    若意识体死亡，则会漂浮至空中化成烟雾。
+</code></pre>
+<h1 id="4魂灵与灵体">4.魂灵与灵体</h1>
+<pre><code>    1.灵体为是能量与意识体的结合，而魂灵为一个单独的个体；
+    2.灵体是实的（如2,18,0.9361），而魂灵是虚的（如i）；
+    3.灵体可以操作物质，而魂灵负责产生操作物质的需求，由意识体实施。
+    4.若现有灵体a与魂灵和意识体的结合b，则b可以看见a，a可以看见b；
+    若现有灵体a与意识体b，则b不可以看见a，a可以看见b；
+    若现有灵体a与魂灵b，则b可以看见a，a不可以看见b；
+</code></pre>
+<h1 id="5魂灵与意识体">5.魂灵与意识体</h1>
+<pre><code>    魂灵+意识体=魂魄。
+    魂魄+躯体=动物。
+    魂魄不会死（当动物死亡时，魂魄将与躯体分离，并分离成意识体与魂灵）。
+</code></pre>
+<ul>
+<li>欢迎补充qwq</li>
+</ul>
+<h1 id="洛雨神教">洛雨神教</h1>
+<pre><code>咕咕咕……
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[小说]]></title>
+        <id>https://ebeo-yvnjiang.github.io/post/xiao-shuo/</id>
+        <link href="https://ebeo-yvnjiang.github.io/post/xiao-shuo/">
+        </link>
+        <updated>2020-02-25T11:10:56.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="前言">前言</h1>
+<hr>
+<p>Billy2007是一个蒟蒻。</p>
+<p>这一天，他想去犇犇茶馆喝茶。</p>
+<p>天空风和日丽，他叫了辆出租车。</p>
+<p>“去巨佬区，犇犇茶馆！”他喊道。</p>
+<p>发动机响起，Billy2007看着路牌：</p>
+<pre><code class="language-cpp">
+S20外环隧道方向
+</code></pre>
+<p>“2333。”他说，“当年kkksc03也是在这开的车……”</p>
+<p>司机沉默了一句，说：“那是古代的事了QWQ”。</p>
+<h1 id="00开店">00——开店</h1>
+<p>“到了，10元。”Billy2007打开钱包，拿出10绿鸟给司机。</p>
+<h3 id="天哪">天哪！</h3>
+<p>这里和犇酒一起，变成了考古之地！！</p>
+<p>无数的考古学家<s>欢聚一堂</s>考古……</p>
+<p>Billy2007看不下去了，便在店旁开了一家杂货店。</p>
+<p>“咕咕杂货店，保证不咕”！</p>
+<h1 id="01顾客">01——顾客</h1>
+<p><s>（咕咕咕……）</s></p>
+<p>Ps:<code>Lo_Kingdom1</code>，现名<code>GoneTime</code>。</p>
+<p>闹铃声响起，他看了看时间，起来干活。</p>
+<p>不久，一名顾客来了，说：</p>
+<p>“两串烤兔，一串烤蛙，3串绿鸟！”</p>
+<p>他定睛一看，他是谁？</p>
+<p>蓝名，Lo_Kingdom1。</p>
+<p>“两串烤兔，一串烤蛙，3串绿鸟”是上古AK IOI的奇异密码，许多用户用它实行JFCA。</p>
+<p>还好，现在没有了JFCA。</p>
+<p>这时，Billy2007听到一声：“I AK IOI”！</p>
+<h1 id="02疑惑">02——疑惑</h1>
+<p><s>（咕咕咕……）</s></p>
+<p>“15绿鸟！”Lo_Kingdom1讲。</p>
+<p>他刚要付钱，那个“IOI's AKER”被kkksc03的陶片包住，随后——就被封号了。</p>
+<p><strong>Lo_Kingdom1</strong>付钱。</p>
+<p>Billy2007看到Lo_Kingdom1胸前的UID：107432。</p>
+<p>他没说什么，等Lo_Kingdom1走了后，打开电脑，输入107432……</p>
+<p>（因为他是洛谷的~~（伪）管理员~~）,所以……</p>
+<p>“禁言，没被封……”他嘀咕道。</p>
+<p>他碰到了《算法导论》。</p>
+<p>《算法导论》飞了出来……</p>
+<h1 id="03遗迹">03——遗迹</h1>
+<p><s>（咕咕咕……）</s></p>
+<p>Lo_Kingdom1信步走出杂货店，将烤串指向天空。</p>
+<p>《算法导论》与一只妹子飞到了LKD1（Lo_Kingdom1）名字缩写的面前。</p>
+<p>风和日丽。</p>
+<p>“走吧。”LKD1牵起妹子的手，向太阳飞去……</p>
+<p>“到了。”LKD1睁开眼。这里是阿里云总部。</p>
+<p>一行人去哪里？This is a question。</p>
+<p>他们不知道，ltt与cz正看着TA们呢<s>2333</s></p>
+<h1 id="04jfca日记">04——JFCA日记</h1>
+<p><s>（咕咕咕……）</s></p>
+<p>《算法导论》里有一本《JFCA日记》，讲了2333个JC他人的方法。</p>
+<p>Billy2007告诉kkk：注意他的行径，我回去开店了。</p>
+<p>kkk：给我带个烤蛙。</p>
+<p>与此同时，遗迹。</p>
+<p>LKD1将遗迹中的一把剑放入眼中，开车上了巨佬区。</p>
+<h1 id="05犇犇的秘密">05——犇犇的秘密</h1>
+<p>又一句“IAKIOI”，几张陶片。</p>
+<p>随后……犇犇居然意想不到的被封了！！！</p>
+<p>“呵呵”，ltt讲，早该这样了。</p>
+<p>原来，2017年，LG曾说：</p>
+<h2 id="犇犇没了">犇犇没了？</h2>
+<p>虽是假的。</p>
+<p>然后，各种JFCA频发，某巨佬就写了一本《JFCA日记》。</p>
+<p>然后，LG人均3条“IAKIOI”……</p>
+<h1 id="06spfa的问题">06——SPFA的问题</h1>
+<p><s>（咕咕咕……）</s></p>
+<p>Billy2007将烤蛙给kkk，kkk给他看了一张图：</p>
+<figure data-type="image" tabindex="1"><img src="https://p0.ssl.qhimgs4.com/t01afde6260f84baf75.jpg" alt="" loading="lazy"></figure>
+<p>这意味着什么？</p>
+<p>kkk又把一个资料给B7（Billy2007简称）。</p>
+<p>在之前，有一个用户Spfa。</p>
+<p>但是NOI2018之后，他却改名了。</p>
+<p>改名的Oier要么被JFCA过，要么不想被人发现。</p>
+<p>可是，Spfa呢……</p>
+<p>B7不禁陷入了沉思。</p>
+<p>cz给B7一个资料。</p>
+<p>原来，Spfa并未改名，是另一位<strong>奆奆奆奆奆奆奆奆奆奆奆奆奆</strong>佬在文文发了个“Spfa改名”，导致如此。</p>
+<p>那么，为什么要这样？</p>
+<p><s>@Spfa不要D我QAQ</s></p>
+<h1 id="07第一次决斗">07——第一次决斗</h1>
+<p>万万没想到，Spfa对此反应这么大，第二天便要求决斗。</p>
+<p>先是P1——<a href="https://www.luogu.org/problem/P1046">P1046</a>。</p>
+<p>这题太水了，10s后两人都AC了。</p>
+<p>P2：<a href="https://www.luogu.org/problem/P1023">P1023</a>。</p>
+<p>题目刚一亮出，Spfa手上的灯亮了。</p>
+<p>于是，Ta先走了。</p>
+<p>B7与kkk看着Ta的背影，觉得十分奇怪。</p>
+<p>$\qquad\qquad\qquad\qquad\qquad\qquad\qquad? $</p>
+<p>夜已深沉，几人只好先回家。</p>
+<h1 id="08第1条线索">08——第1条线索</h1>
+<p><s>（咕咕咕……）</s></p>
+<p>第二天。</p>
+<p>3人在<strong>洛谷餐厅</strong>里谈天。</p>
+<p>kkk：<s>IAKIOI</s>这个灯，是LKD1的师尊当年交给Ta们的弟子的。</p>
+<p>cz：<s>%%%tql</s>好像也是啊，对了……</p>
+<p>B7：还记得<strong>株洲市南方中学</strong>吗？哪里好像有一个阿里云与JC基地也。</p>
+<p>2人：是也是也！</p>
+<p>kkk：ltt，hh，你俩把<strong>株洲市南方中学</strong>先封IP！</p>
+<p>2h后……</p>
+<p>LKD1来到了<strong>株洲市南方中学</strong>……</p>
+<h1 id="09目前的结尾">09——目前的结尾</h1>
+<p><s>（咕咕咕……）</s></p>
+<p>感谢您的观看。</p>
+<p>第一季现在已经结束了。</p>
+<p>第二季什么时候开始，这还是个迷。</p>
+<p>这个故事是虚构的，@Lo_Kingdom1是我的女朋友。</p>
+<p>本故事只是为了赞颂一下<strong>洛谷</strong>这个OJ与Ta的管理者们。</p>
+<p>第二季预告：</p>
+<pre><code>800年前，这世界上曾经有一军洛谷十字军。
+在犇茶时代，他们服务于洛谷。
+而如今，在JC打压与洛谷的再次更新下，十字军的封印即将被解除，新的故事马上开始……
+</code></pre>
+<h1 id="10洛谷十字军">10——洛谷十字军</h1>
+<p>800年前，这世界上曾经有一军洛谷十字军。</p>
+<p>在犇茶时代，他们服务于洛谷。</p>
+<p>后来，江河流转，洛谷更新，十字军的成员们纷纷离队，将十字军之力划上了封印，密码全在《JFCA日记》中。</p>
+<p>可是……</p>
+<p>《JFCA日记》呢？</p>
+<p>十字军成员全部在长风城中。</p>
+<p>几个月前，长风城被核弹炸毁，十字军便转移到了洛谷之家。</p>
+<p>他们与咕咕杂货店又有什么关系呢？</p>
+<h1 id="11梦之地与灌水">11——梦之地与灌水</h1>
+<p>咕咕杂货店的诞生源于一念之间。</p>
+<p><s>IAKIOI</s>这句话与所有的念想，都来自一个叫<strong>梦之地</strong>的地方。</p>
+<p>那里，一切行为都由<strong>灌水</strong>做成。</p>
+<p>咕咕杂货店当年，与TA取得了密切的联系。</p>
+<p>只因为，B7给了梦之地一个代码：</p>
+<pre><code class="language-cpp">#define fs(i,x,y,z) for(int i=x;i&lt;=y;i+=z)
+int n,m,a[1001][1001];
+void floyd(){
+	fs(i,1,n,1){
+        fs(j,1,n,1){
+            fs(k,1,n,1){
+                if(a[j][k]&gt;a[j][i]+a[i][k]) a[j][k]=a[j][i]+a[i][k];
+            }
+        }
+    }
+}
+//2333
+</code></pre>
+<h1 id="12梦的源头">12——梦的源头</h1>
+<p>现在，距离写小说已经过了大约118d。</p>
+<p>B7百无聊赖地坐在杂货店门口，看着一个一个帖子，一个一个题解飞过。</p>
+<p>JYB发了一个<strong>♀强♂基♀计♂划♀</strong>，让所有谷民愤怒了起来。</p>
+<p>一时间，洛谷世界纷纷扬扬，仿佛所有的努力，所有的梦，都在一瞬间<strong>消 失 殆 尽</strong>。犇犇，都因此关闭，以示默哀。</p>
+<p>此时，梦的源头，那个看似强大的地方，居然，脆弱得不行……</p>
+<p>Ps：以后的篇幅会大大缩小qwq</p>
+<h1 id="13开车事件">13——开车事件</h1>
+<p>有一天晚上，High_Score 巨佬当场开车。/kk</p>
+<p>于是，犇犇顿时分成两派：<strong>JFCA</strong>与<strong>GHS</strong>。</p>
+<p>阿，又是JC？B7想，不太可能qwq</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[CSPJ游记]]></title>
         <id>https://ebeo-yvnjiang.github.io/post/cspj-you-ji/</id>

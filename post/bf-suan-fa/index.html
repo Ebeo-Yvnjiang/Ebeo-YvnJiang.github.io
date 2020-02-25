@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | Billy2007&amp;GoneTimeの世界</title>
+<title>BF算法 | Billy2007&amp;GoneTimeの世界</title>
 <meta name="description" content="大梦一场，人生休狂">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -23,6 +23,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://ebeo-yvnjiang.github.io">Billy2007&amp;GoneTimeの世界</a></h3>
@@ -79,12 +80,73 @@
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="row tags-container">
+          <article class="article">
+            <h1>BF算法</h1>
+            <p class="article-meta">
+              2020-02-25
+              
+            </p>
             
-          </div>
+            <div class="post-content">
+              <pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ns &quot;-1&quot;
+#define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)
+#define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)
+#define ll long long
+#define ull unsigned long long
+#define db double
+#define ms(a,b) memset(a,b,sizeof(a))
+#define sz(a) sizeof(a)
+using namespace std;
+const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};
+const int N=100001,inf=0x7f7f7f7f;
+int n,m,f,flg,k;//f：第一次出现的位置；k：出现的总次数；
+char s[N],p[N];//s：总串；p：模式串。
+//无解输出0 0
+int main(){
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+    cout.tie(0);
+    cin&gt;&gt;n&gt;&gt;(s+1)&gt;&gt;m&gt;&gt;(p+1);
+    fs(start,1,(n-m+1),1){
+    	flg=0;
+    	fs(q,start,(start+m-1),1){//逐个比较
+    		//cout&lt;&lt;&quot;q:&quot;&lt;&lt;' '&lt;&lt;q&lt;&lt;' '&lt;&lt;s[q]&lt;&lt;' '&lt;&lt;p[q-start+1]&lt;&lt;endl;
+    		if(s[q]!=p[q-start+1]){
+    			flg=1;break;
+			}
+		}
+		if(flg==0){
+			if(f==0) f=start;
+			k++;
+		} 
+	}
+	cout&lt;&lt;f&lt;&lt;' '&lt;&lt;k;
+	return 0;
+}
+//O((N-M)M)=O(NM-M^2)=O(NM)
+</code></pre>
+
+            </div>
+          </article>
         </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                继续！
+              </div>
+              <a href="https://ebeo-yvnjiang.github.io/post/yi-ge-shen-mi-de-dong-xi/">
+                <h3 class="post-title">
+                  一个神秘的东西
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://ebeo-yvnjiang.github.io/images/avatar.png?v=1582629143523" class="no-responsive avatar">
@@ -167,7 +229,8 @@
     By <a href="https://www.luogu.com.cn/blog/desh5555" target="_blank">Billy2007</a> | <a class="rss" href="https://ebeo-yvnjiang.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
-  
+
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
