@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://ebeo-yvnjiang.github.io</id>
+    <title>Gridea</title>
+    <updated>2020-02-25T05:58:54.322Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
+    <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
+    <subtitle>大梦一场，人生休狂</subtitle>
+    <logo>https://ebeo-yvnjiang.github.io/images/avatar.png</logo>
+    <icon>https://ebeo-yvnjiang.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[test]]></title>
+        <id>https://ebeo-yvnjiang.github.io/post/test/</id>
+        <link href="https://ebeo-yvnjiang.github.io/post/test/">
+        </link>
+        <updated>2020-02-25T05:43:30.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="qwq">qwq</h1>
+]]></content>
+    </entry>
+</feed>
