@@ -137,6 +137,10 @@ nav ul.inline li a {
   display: block;
 }
 
+      .paper {
+        background: rgba(212,154,48,0.3);
+      }
+    
       .navbar {
         background: #cc5de8;
       }
