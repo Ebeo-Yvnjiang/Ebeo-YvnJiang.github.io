@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>NOIP要点 | Billy2007&amp;GoneTimeの世界</title>
+<meta name="description" content="大梦一场，人生休狂">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://ebeo-yvnjiang.github.io/favicon.ico?v=1582678425583">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://ebeo-yvnjiang.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://ebeo-yvnjiang.github.io">Billy2007&amp;GoneTimeの世界</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>NOIP要点</h1>
+            <p class="article-meta">
+              2020-02-26
+              
+            </p>
+            
+            <div class="post-content">
+              <ul>
+<li>文件操作不可以用sync！</li>
+<li>bits/stdc++.h中，变量注意重名！</li>
+<li>不阔以用</li>
+</ul>
+<pre><code>x0,x1,y0,y1,time,pipe,next,max,min,sort,tm,pow等等……
+</code></pre>
+<ul>
+<li>文件名必须复制黏贴</li>
+<li>文件名必须小写！！！</li>
+<li>在windows下，freopen不加cstdio不会报错</li>
+<li></li>
+</ul>
+<pre><code>freopen(&quot;.in&quot;,&quot;r&quot;,stdin);
+freopen(&quot;.out&quot;,&quot;w&quot;,stdout&quot;);
+//……
+fclose(stdin);
+fclose(stdout);
+return 0;
+</code></pre>
+<ul>
+<li>T3与T4必须放弃一题！（除非都会或者T1T2都<strong>确认</strong>AC <strong>（至少构造5组数据AC）</strong>）才可以</li>
+<li>RP++</li>
+<li>头文件！</li>
+</ul>
+<pre><code class="language-cpp">&lt;iostream&gt;
+&lt;cstdio&gt;
+&lt;cmath&gt;
+&lt;algorithm&gt;
+&lt;vector&gt;
+&lt;queue&gt;
+&lt;cstring&gt;
+&lt;cstdlib&gt;
+</code></pre>
+<ul>
+<li>最好不要用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mi>i</mi><mi>t</mi><mi>s</mi><mi mathvariant="normal">/</mi><mi>s</mi><mi>t</mi><mi>d</mi><mi>c</mi><mo>+</mo><mo>+</mo><mi mathvariant="normal">.</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">bits/stdc++.h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mord">/</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault">d</span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">.</span><span class="mord mathdefault">h</span></span></span></span></li>
+<li>最好定义全局变量</li>
+<li>不要用gets</li>
+<li>cout控制位数：</li>
+</ul>
+<pre><code class="language-cpp">#include&lt;iomanip&gt;
+double x;int n;
+cout&lt;&lt;fixed&lt;&lt;setprecision(n)&lt;&lt;x;
+</code></pre>
+<ul>
+<li>评测机太慢了， <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O( n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 只能踩1000000。</li>
+<li>否则就用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 算法。</li>
+<li>尽量不要用指针。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>+</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">a+i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>=<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">a[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span>。</li>
+<li>inf必须是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mi>x</mi><mn>7</mn><mi>f</mi><mi>f</mi><mi>f</mi><mi>f</mi><mi>f</mi><mi>f</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">0x7fffffff</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mord mathdefault">x</span><span class="mord">7</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span> !</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                继续！
+              </div>
+              <a href="https://ebeo-yvnjiang.github.io/post/bf-suan-fa/">
+                <h3 class="post-title">
+                  BF算法
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://ebeo-yvnjiang.github.io/images/avatar.png?v=1582678425583" class="no-responsive avatar">
+    <div class="text-muted">大梦一场，人生休狂</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://ebeo-yvnjiang.github.io/post/noip-yao-dian/">NOIP要点</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ebeo-yvnjiang.github.io/post/bf-suan-fa/">BF算法</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ebeo-yvnjiang.github.io/post/yi-ge-shen-mi-de-dong-xi/">一个神秘的东西</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ebeo-yvnjiang.github.io/post/xiao-shuo/">小说</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ebeo-yvnjiang.github.io/post/cspj-you-ji/">CSPJ游记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ebeo-yvnjiang.github.io/post/about/">about</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ebeo-yvnjiang.github.io/post/about-this-blog/">About This Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://ebeo-yvnjiang.github.io/post/test/">test</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签们
+    </div>
+    <div class="row">
+      
+    </div>
+  </div>
+  <div class="paper">
+    By <a href="https://www.luogu.com.cn/blog/desh5555" target="_blank">Billy2007</a> | <a class="rss" href="https://ebeo-yvnjiang.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>
