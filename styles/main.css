@@ -145,3 +145,9 @@ nav ul.inline li a {
         background: #cc5de8;
       }
     
+      body {
+background-image: url(http://i2.tiimg.com/669018/615d2ec307b72428.jpg);
+background-repeat: repeat-y;
+background-attachment:fixed;
+}
+    
