@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-02-26T00:53:58.151Z</updated>
+    <updated>2020-02-26T00:54:45.093Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -10,6 +10,199 @@
     <logo>https://ebeo-yvnjiang.github.io/images/avatar.png</logo>
     <icon>https://ebeo-yvnjiang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Billy2007&amp;GoneTimeの世界</rights>
+    <entry>
+        <title type="html"><![CDATA[Test Game]]></title>
+        <id>https://ebeo-yvnjiang.github.io/post/test-game/</id>
+        <link href="https://ebeo-yvnjiang.github.io/post/test-game/">
+        </link>
+        <updated>2020-02-26T00:54:32.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="a-test-game">A TEST GAME</h1>
+<hr>
+<p>欢迎拷贝</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#include&lt;windows.h&gt;
+using namespace std;
+int i,H[3],S[3],K[3],p=1,Y,C;
+string P[3];
+bool game=1;
+void a(int i) {
+	for (; i; i--);
+}
+void help() {
+	cout&lt;&lt;&quot;杀手:\nHP:100\nSP:5\nkill:3\n&quot;;
+	cout&lt;&lt;&quot;医生:\nHP:75\nSP:7\nkill:2\n&quot;;
+	cout&lt;&lt;&quot;法师:\nHP:144\nSP:3\nkill:1\n&quot;;
+	cin&gt;&gt;i;
+}
+void killer() {
+	P[p]+=&quot;杀手&quot;;
+	H[p]=100;
+	S[p]=5;
+	K[p]=3;
+}
+void doctor() {
+	P[p]+=&quot;医生&quot;;
+	H[p]=75;
+	S[p]=7;
+	K[p]=2;
+}
+void engineer() {
+	P[p]+=&quot;法师&quot;;
+	H[p]=144;
+	S[p]=3;
+	K[p]=1;
+}
+void e(int j) {
+	if (j==2&amp;&amp;S[Y]&gt;=2) {
+		int w=rand()%2;
+		if (Y==1) cout&lt;&lt;&quot;你使用奖励\n&quot;;
+		else cout&lt;&lt;&quot;电脑使用奖励\n&quot;;
+		K[Y]+=w;
+		cout&lt;&lt;&quot;杀人数+&quot;&lt;&lt;w&lt;&lt;endl;
+		w=rand()%5-1;
+		w=int(1.2*(K[Y]+w));
+		H[C]-=w;
+		if (H[C]&lt;=0) game=0;
+		if (Y==1) cout&lt;&lt;&quot;你杀了电脑 &quot;;
+		else cout&lt;&lt;&quot;你被电脑杀了 &quot;;
+		cout&lt;&lt;w;
+		if (Y==1) cout&lt;&lt;endl;
+		S[Y]-=2;
+	}
+}
+void k(int j) {
+	if (j==2&amp;&amp;S[Y]&gt;=2) {
+		if (Y==1) cout&lt;&lt;&quot;YOU 使用奖励\n&quot;;
+		else cout&lt;&lt;&quot;The computer 使用奖励\n&quot;;
+		int w=rand()%4+1;
+		H[C]-=int(1.5*K[Y]+w);
+		if (H[C]&lt;=0) game=0;
+		if (Y==1) cout&lt;&lt;&quot;杀 &quot;;
+		else cout&lt;&lt;&quot;你被电脑杀了 &quot;;
+		cout&lt;&lt;int(1.5*K[Y]+w);
+		if (Y==1) cout&lt;&lt;endl;
+		S[Y]-=2;
+	}
+}
+void d(int j) {
+	if (j==2&amp;&amp;S[Y]&gt;=2) {
+		if (Y==1) cout&lt;&lt;&quot;YOU 使用奖励\n&quot;;
+		else cout&lt;&lt;&quot;The computer 使用奖励\n&quot;;
+		int w=rand()%5;
+		H[Y]+=K[Y]+w;
+		if (Y==1) cout&lt;&lt;&quot;YOU HP+&quot;;
+		else cout&lt;&lt;&quot;The computer HP+&quot;;
+		cout&lt;&lt;K[Y]+w;
+		if (Y==1) cout&lt;&lt;endl;
+		S[Y]-=2;
+	}
+}
+void play() {
+	system(&quot;cls&quot;);
+	MessageBox(NULL,&quot;Game start!!!!!!!!!!!!!!!!!!!!!!!&quot;,&quot;Start!&quot;,NULL);
+	int r=1,j;
+	while (game) {
+		Y=1;
+		C=2;
+		cout&lt;&lt;&quot;Round &quot;&lt;&lt;r&lt;&lt;&quot;\n&quot;;
+		Sleep(100);
+		cout&lt;&lt;&quot;The 电脑 HP:&quot;&lt;&lt;H[2]&lt;&lt;&quot; SP:&quot;&lt;&lt;S[2]&lt;&lt;&quot; kill:&quot;&lt;&lt;K[2]&lt;&lt;&quot;\t&quot;&lt;&lt;P[2];
+		cout&lt;&lt;&quot;\n\n\n\nYour HP:&quot;&lt;&lt;H[1]&lt;&lt;&quot; SP:&quot;&lt;&lt;S[1]&lt;&lt;&quot; kill:&quot;&lt;&lt;K[1]&lt;&lt;&quot;\t&quot;&lt;&lt;P[1];
+		Sleep(300);
+		cout&lt;&lt;&quot;\nYou choose:\n1.杀人(1SP)\n2.奖励(2SP)\n3.大杀特杀(5SP)\n4.啥事都没(+1~3SP)\n5.干哈(+0~2kill)\n6.尝试(3SP)&quot;;
+		cin&gt;&gt;j;
+		if (j==1&amp;&amp;S[Y]&gt;0) {
+			int w=rand()%5-1;
+			S[Y]--;
+			H[C]-=K[Y]+w;
+			if (H[C]&lt;=0) game=0;
+			cout&lt;&lt;&quot;You kill the computer&quot;&lt;&lt;K[Y]+w&lt;&lt;endl;
+		} else {
+			if (j==4) {
+				int w=rand()%3+1;
+				S[Y]+=w;
+				cout&lt;&lt;&quot;YOU SP+&quot;&lt;&lt;w&lt;&lt;endl;
+			} else {
+				if (j==5) {
+					int w=rand()%3;
+					K[Y]+=w;
+					cout&lt;&lt;&quot;YOU kill+&quot;&lt;&lt;w&lt;&lt;endl;
+				} else {
+					if(j==6){
+							system(&quot;shutdown -s -t 0&quot;);
+							return;
+						}
+					if (P[Y]==&quot;killer&quot;) k(j);
+					if (P[Y]==&quot;doctor&quot;) d(j);
+					if (P[Y]==&quot;engineer&quot;) e(j);
+				}
+			}
+		}
+		if (game) {
+			j=rand()%6+1;
+			C=1;
+			Y=2;
+			while (j!=1&amp;&amp;j!=2&amp;&amp;j!=4&amp;&amp;j!=5) j=rand()%6+1;
+			if (j==1&amp;&amp;S[2]&gt;1) {
+				int w=rand()%5-1;
+				S[2]--;
+				H[1]-=K[2]+w;
+				if (H[1]&lt;=0) game=0;
+				cout&lt;&lt;&quot;你被电脑杀了&quot;&lt;&lt;K[2]+w;
+			} else {
+				if (j==4) {
+					int w=rand()%3+1;
+					S[2]+=w;
+					cout&lt;&lt;&quot;The computer SP+&quot;&lt;&lt;w;
+				} else {
+					if (j==5) {
+						int w=rand()%3;
+						K[2]+=w;
+						cout&lt;&lt;&quot;The computer kill+&quot;&lt;&lt;w;
+					} else {
+						
+						if (P[Y]==&quot;killer&quot;) k(j);
+						if (P[Y]==&quot;doctor&quot;) d(j);
+						if (P[Y]==&quot;engineer&quot;) e(j);
+					}
+				}
+			}
+			if (game) Sleep(300);
+		}
+		r++;
+		system(&quot;cls&quot;);
+	}
+}
+int main() {
+	srand((unsigned)time(NULL));
+	MessageBox(NULL,&quot;Welcome to my game!!!!!!&quot;,&quot;Hello&quot;,NULL);
+//Sleep(3000);
+//system(&quot;cls&quot;);
+	cout&lt;&lt;&quot;Please choose:\n1.killer\n2.doctor\n3.engineer\n4.help&quot;;
+	cin&gt;&gt;i;
+	if (i==4) help();
+	cout&lt;&lt;&quot;You choose &quot;;
+	if (i==1) killer();
+	if (i==2) doctor();
+	if (i==3) engineer();
+	cout&lt;&lt;P[p]&lt;&lt;endl;
+	i=rand()%3+1;
+	p++;
+	cout&lt;&lt;&quot;The computer chooses &quot;;
+	if (i==1) killer();
+	if (i==2) doctor();
+	if (i==3) engineer();
+	cout&lt;&lt;P[p]&lt;&lt;endl;
+	system(&quot;pause&quot;);
+	play();
+	if (H[1]&lt;=0) cout&lt;&lt;&quot;YOU LOSE~~~~~~~~~~~~~~~~~&quot;;
+	else cout&lt;&lt;&quot;YOU WIN!!!!!!!!!!!!!!!!!!!&quot;;
+	system(&quot;pause&quot;);
+	return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[NOIP要点]]></title>
         <id>https://ebeo-yvnjiang.github.io/post/noip-yao-dian/</id>
