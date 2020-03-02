@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-02-29T02:42:28.453Z</updated>
+    <updated>2020-03-02T03:39:26.359Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -10,6 +10,30 @@
     <logo>https://ebeo-yvnjiang.github.io/images/avatar.png</logo>
     <icon>https://ebeo-yvnjiang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Billy2007&amp;GoneTimeの世界</rights>
+    <entry>
+        <title type="html"><![CDATA[检讨]]></title>
+        <id>https://ebeo-yvnjiang.github.io/post/jian-tao/</id>
+        <link href="https://ebeo-yvnjiang.github.io/post/jian-tao/">
+        </link>
+        <updated>2020-03-02T03:20:30.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="因为时间关系先发个在线的">因为时间关系，先发个在线的。</h2>
+<h2 id="尊敬的洛谷管理员们你们好我是一个oier从2018年进入洛谷-在18年的大概是11月吧我遇到了一到不会做的题目-那是正好因为老师抓得紧于是我心一横打开了题解按钮找出一篇题解就ctrlcctrlv了起来-大概几分钟过后我成功ac了那题-现在想起来那题好像是快速幂模板-后来想想好像抄完也没有什么愧疚感反而还挺庆幸的-现在想起来那时的自己蠢得一批几乎啥题都不会做估计只有今天的普及120水平-估计就从那时起我便开始了抄题解">尊敬的洛谷管理员们：<br>
+你们好！<br>
+我是一个OIer，从2018年进入洛谷。<br>
+在18年的大概是11月吧，我遇到了一到不会做的题目。<br>
+那是正好因为老师抓得紧，于是我心一横，打开了“题解”按钮，找出一篇题解，就CtrlC，CtrlV了起来。大概几分钟过后，我成功AC了那题。<br>
+现在想起来，<s>那题好像是快速幂模板</s>。<br>
+后来想想，好像抄完也没有什么愧疚感，反而还挺庆幸的。<br>
+现在想起来，那时的自己蠢得一批，几乎啥题都不会做（估计只有今天的普及120水平）。<br>
+估计就从那时起，我便开始了抄题解。</h2>
+<pre><code>    那时的自己懵懵懂懂的，还没有对“诚信”这个词有一个具体的概念。每当返作弊跑起来正好没抓到我时，我感觉的不是愧疚，而是一种庆幸。
+    好像那时我还是一个xxs，做的行为也非常xxs。但是今天我升上初一，行为还是非常xxs。可是那时根本就没有意识到自己**是xxs行为，还觉得洛谷这样的人多的去，不缺我一个**。我现在借该检讨告诉自己，这种行为非常不值得，也给洛谷造成了很多评测资源的浪费。
+</code></pre>
+<hr>
+<pre><code>    在发现我抄题解后，我爸狠狠地打了我一顿。
+    回想起来，        </code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[一些感想]]></title>
         <id>https://ebeo-yvnjiang.github.io/post/yi-xie-gan-xiang/</id>
@@ -2841,127 +2865,6 @@ void floyd(){
 <p>发明了lysj的B7百无聊赖地看着神帖的增加。</p>
 <p>他忘了他的活和<s>小说</s>，一心谔谔+灌水+学习。</p>
 <p><s>我谔谔</s></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CSPJ游记]]></title>
-        <id>https://ebeo-yvnjiang.github.io/post/cspj-you-ji/</id>
-        <link href="https://ebeo-yvnjiang.github.io/post/cspj-you-ji/">
-        </link>
-        <updated>2020-02-25T09:09:05.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="fj的63分-190">FJ的，63分-190</h1>
-<p><s>下面说重点</s></p>
-<h1 id="day-1">Day -1:</h1>
-<p>因为还要准备PET（我太菜了QAQ），所以基本没看。</p>
-<h2 id="晚上打卡才知道还有21天">晚上打卡才知道还有2<s>1</s>天……</h2>
-<p>肝了一晚上初赛篇……感觉考的还是NOIP PJ啊QWQ</p>
-<p>我要妹子！！！</p>
-<h1 id="day-0">Day 0:</h1>
-<p>疯狂做模拟题……<strong>kkksc03</strong>挺准的，果然40选择。</p>
-<p>模拟赛66.5，感觉拿去当炮灰的。</p>
-<p>晚上12点才睡着，在被窝里把<s>没考到的</s>计算机知识背了一遍……</p>
-<p>预估要凉（<s>有人已经开始讨论题目了Orz</s>）</p>
-<h1 id="day-1-2">Day 1:</h1>
-<p>考点设在<strong>师大附中</strong>，13：45到的，14:10才挤进去……</p>
-<p>LG还祝我RP++++……（<s>去年NOIP介么没有QWQ</s>）</p>
-<h3 id="sjqfyzzjccrc这些奆佬全来了">sjq,fyz,zjc,crc这些<strong>奆</strong>佬全来了……</h3>
-<p>1430，开始做题。</p>
-<h6 id="听说一巨佬说100内最大质数93">听说一巨佬说100内最大质数93？%%%%%%%%%%</h6>
-<p>估计只有<strong>第1题</strong>昨晚复习到了……QWQ</p>
-<p>第11题没看太懂，蒙了个C（似乎还蒙对了？QAQ）</p>
-<p>第15题考语文的嘛QAQ</p>
-<p>接下来是<strong>阅读程序</strong>。</p>
-<p>第一题水，但我看了3遍才看懂。</p>
-<p>求因数个数？QAQ嘤嘤嘤我昨晚复习的rua！</p>
-<p>o(<em>￣︶￣</em>)o但愿能AC此题吧QAQ</p>
-<p>第二题NOIP2017改编版？</p>
-<p>QWQ正好那时没搞懂……</p>
-<p>判断题是啥？上课老师正好讲的2333</p>
-<p>后来全对惹QWQ</p>
-<p>两题选择题... ... 拿1和2代入，应该对了吧。。。。。。</p>
-<p><s>事实证明我想太多了QWQ</s></p>
-<p>第三题毒瘤啊……看左边的巨佬都做到完善程序了QWQ（<s>别问我怎么看到的</s>）</p>
-<p>随便蒙了几个……</p>
-<h1 id="事实证明数据结构很重要qaq">事实证明数据结构很重要QAQ</h1>
-<p>（<s>当初画了个dgTREE，还对了？？</s>）</p>
-<p>%%%@zzq dalao，求保佑。</p>
-<p>接下来是<strong>完善程序</strong>。</p>
-<p>第一题DL，先看T2。</p>
-<p>第二题。。。。。。居然叫“选择排序”？（感觉和NOIP2018T2hin像嘛QWQ）</p>
-<h1 id="233333出题人肯定在笑吧qwq">233333出题人肯定在笑吧QWQ</h1>
-<p>AWA</p>
-<p>瞎蒙一气。（错了5个，<s>有人全蒙B拿了15分(完善程序），而我……</s>）</p>
-<p>然后就结束了。</p>
-<p><strong>时代中学</strong>的空气多好！</p>
-<h1 id="day-2">Day 2</h1>
-<p>上课颓废。</p>
-<p><s>-1天好评</s></p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>E</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">PET</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>也考完了，可以<s>颓废</s>备考复赛了。</p>
-<p>预计<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>F</mi><mi>O</mi></mrow><annotation encoding="application/x-tex">AFO</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span></span></span></span>。</p>
-<h1 id="好了此游记就这样结束了">好了，此游记就<s>这样</s>结束了……</h1>
-<h1 id="后记">后记：</h1>
-<p><a href="https://studyingfather.blog.luogu.org/frequent-bugs">这</a>是复赛的要点，如果犯了我就女装!!!</p>
-<h1 id="第二轮认证游记">第二轮认证游记：</h1>
-<h1 id="d0">D0：</h1>
-<p>猛刷红题……</p>
-<pre><code class="language-c">//T1要拿满分。
-</code></pre>
-<p>我牢记这句话，于是<s>1h排名上了300（一本通OJ）</s>。</p>
-<h1 id="d1">D1：</h1>
-<p>14:00到了三中。</p>
-<p>这次试题解压密码叫“认真检查”<s>（为什么不叫“建国70年”）</s></p>
-<p>先看T1，3min切。</p>
-<p>代码：</p>
-<pre><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;math.h&gt;
-#include&lt;cstring&gt;
-#define ll long long
-#define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)
-using namespace std;
-char x[1001];
-int ans;
-int main(){
-	freopen(&quot;number.in&quot;,&quot;r&quot;,stdin);
-	freopen(&quot;number.out&quot;,&quot;w&quot;,stdout);
-	cin&gt;&gt;x;
-	fs(i,0,7,1) if(x[i]=='1') ans++;
-	cout&lt;&lt;ans;
-	fclose(stdin);
-	fclose(stdout);
-	return 0;
-}
-
-</code></pre>
-<p>布吉岛为什么，T2我只会60算法 <s>（一堆xxs100）</s></p>
-<p>好像要用堆优化？QAQ</p>
-<p>不管那么多了，时间第一！！！</p>
-<p>QAQ……</p>
-<p>T3好难！<s>后来据说T3T4都是省选难度QAQ（浴谷有原题）</s></p>
-<p>写一个：</p>
-<pre><code class="language-cpp">if(t==1) cout&lt;&lt;m;
-else{
-    srand(time(NULL));
-    cout&lt;&lt;(rand()%10000+m)%10000;
-}
-</code></pre>
-<p>T4害得我想了半天……<strong>T_T</strong></p>
-<p>忍痛看了sjfw，40分DFS走起……</p>
-<p>开a[][]时脑子一热：</p>
-<pre><code class="language-cpp">int a[19999][19999];
-bool dfs(int now);
-</code></pre>
-<p>抱灵成功QWQ（<s>oitiku：我想ban谁就ban谁233</s>）</p>
-<p>嘤嘤嘤……</p>
-<p>最后……</p>
-<ul>
-<li>谷测：200</li>
-<li>oitiku：170</li>
-<li>QBXT：160</li>
-<li>牛客：260</li>
-</ul>
-<h1 id="while1-csp2020rppowinfinf">while(1) CSP2020.RP*=pow(inf,inf);</h1>
-<h1 id="pet-rp">PET RP++（</h1>
 ]]></content>
     </entry>
 </feed>
