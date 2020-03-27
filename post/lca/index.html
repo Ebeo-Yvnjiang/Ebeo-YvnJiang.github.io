@@ -7,7 +7,7 @@
 <meta name="description" content="大梦一场，人生休狂">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://ebeo-yvnjiang.github.io/favicon.ico?v=1585306513967">
+<link rel="shortcut icon" href="https://ebeo-yvnjiang.github.io/favicon.ico?v=1585307613092">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -189,61 +189,54 @@ int dep[N],lga[N],n,m,s,fa[N][22];//这里dep[i]表示第i个点的深度，lga[
 </code></pre>
 <p>在记录祖先的过程中，这里<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>对应第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span>层，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>o</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">now</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>往上第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span>祖先就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>o</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">now</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>往上第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>个祖先的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>个祖先。</p>
 <p>比如下面的树。</p>
-<pre><code>     1
-    /  \
-  2     3
-/  \   
+<pre><code>        1
+       /  \
+     2     3
+   /  \   
+ 4    5
 </code></pre>
+<p>（<s>画的比较丑，不要喷</s>）</p>
+<p>显然<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">2^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span>个祖先是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，那么<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span>的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">2^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span>个祖先就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span>的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">2^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span>个祖先的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">2^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span>个祖先。</p>
+<p>哇哇哇，递归！</p>
+<p>形成了递归关系后，那么接下来就好做多了。</p>
 </li>
-</ol>
-<p>4    5</p>
-<pre><code> 
- （~~画的比较丑，不要喷~~）
- 
- 显然$2$的第$2^0$个祖先是$1$，那么$5$的第$2^1$个祖先就是$5$的第$2^0$个祖先的第$2^0$个祖先。
- 
- 哇哇哇，递归！
- 
- 形成了递归关系后，那么接下来就好做多了。
- 
-4. 题外话
-
- 是不是所有 **实数$a$** 都可以用$\sum_{i=0}^n 2^i\times k_i(k_i\in \{0,1\})$表示呢？
- 
- 答案是对。
- 
- 显然任何一个**实数$a$** 都可以表示成二进制表示，那么二进制就是上式的形式。
- 
-5. 最核心的部分
-
- 假设$b(x)=2^x$。
- ```cpp
- int lca(int x,int y){
- 	if(dep[x]&lt;dep[y]) swap(x,y);//这里为了方便，让x永远比y深
- 	while(dep[x]&gt;dep[y]) x=fa[x][lga[dep[x]-dep[y]]-1];
- 	//这里的lga是lb(dep[x]-dep[y]+1)，所以还要-1。
- 	//这里就是直接让x跳到和y同一深度，再接下去搞。
- 	//个人不明白为什么还要写个while。
- 	//现在懂了，可能需要跳很多次（比如8-&gt;4-&gt;1）才可以到。
- 	if(x==y) return x;
- 	//如果一跳，得，直接一样了，那么lca就是x了（写y也可以/cy）
- 	for(int i=lga[x];i&gt;=0;i--){
- 		if(fa[x][i]!=fa[y][i]) x=fa[x][i],y=fa[y][i];
- 		/*
- 		全场最NB代码
- 		如果现在两个节点的b(x)层父亲相等，那么说明步子跨大了。
- 		那么就不要跨了。
- 		否则，就说明现在还需要跨。
- 		那么就继续给我跨。
- 		如果现在两个点已经到了合并态（注：比如上面那棵树的2和3,4和5），那么就不要管他了。
- 		jojo！时间复杂度O(lb(n))!
- 		*/
- 	}
- 	return fa[x][0];//这里x他爸就是lca，因为现在x和y已经到了合并态。
+<li>
+<p>题外话</p>
+<p>是不是所有 <strong>实数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span></strong> 都可以用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></msubsup><msup><mn>2</mn><mi>i</mi></msup><mo>×</mo><msub><mi>k</mi><mi>i</mi></msub><mo>(</mo><msub><mi>k</mi><mi>i</mi></msub><mo>∈</mo><mo>{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo>}</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">\sum_{i=0}^n 2^i\times k_i(k_i\in \{0,1\})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.124374em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">}</span><span class="mclose">)</span></span></span></span>表示呢？</p>
+<p>答案是对。</p>
+<p>显然任何一个<strong>实数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span></strong> 都可以表示成二进制表示，那么二进制就是上式的形式。</p>
+</li>
+<li>
+<p>最核心的部分</p>
+<p>假设<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msup><mn>2</mn><mi>x</mi></msup></mrow><annotation encoding="application/x-tex">b(x)=2^x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span></span></span></span>。</p>
+<pre><code class="language-cpp">int lca(int x,int y){
+	if(dep[x]&lt;dep[y]) swap(x,y);//这里为了方便，让x永远比y深
+	while(dep[x]&gt;dep[y]) x=fa[x][lga[dep[x]-dep[y]]-1];
+	//这里的lga是lb(dep[x]-dep[y]+1)，所以还要-1。
+	//这里就是直接让x跳到和y同一深度，再接下去搞。
+	//个人不明白为什么还要写个while。
+	//现在懂了，可能需要跳很多次（比如8-&gt;4-&gt;1）才可以到。
+	if(x==y) return x;
+	//如果一跳，得，直接一样了，那么lca就是x了（写y也可以/cy）
+	for(int i=lga[x];i&gt;=0;i--){
+		if(fa[x][i]!=fa[y][i]) x=fa[x][i],y=fa[y][i];
+		/*
+		全场最NB代码
+		如果现在两个节点的b(x)层父亲相等，那么说明步子跨大了。
+		那么就不要跨了。
+		否则，就说明现在还需要跨。
+		那么就继续给我跨。
+		如果现在两个点已经到了合并态（注：比如上面那棵树的2和3,4和5），那么就不要管他了。
+		jojo！时间复杂度O(lb(n))!
+		*/
+	}
+	return fa[x][0];//这里x他爸就是lca，因为现在x和y已经到了合并态。
 }
 </code></pre>
-<ol start="6">
-<li>完整代码<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+</li>
+<li>
+<p>完整代码</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 #define ns &quot;-1&quot;
 #define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)
 #define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)
@@ -341,7 +334,7 @@ int main(){
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://ebeo-yvnjiang.github.io/images/avatar.png?v=1585306513967" class="no-responsive avatar">
+    <img src="https://ebeo-yvnjiang.github.io/images/avatar.png?v=1585307613092" class="no-responsive avatar">
     <div class="text-muted">大梦一场，人生休狂</div>
     <div class="social-container">
       
@@ -461,7 +454,7 @@ int main(){
           OI
         </a>
       
-        <a href="https://ebeo-yvnjiang.github.io/tag/xiaoshuo/" class="badge warning">
+        <a href="https://ebeo-yvnjiang.github.io/tag/xiaoshuo/" class="badge success">
           小说
         </a>
       
