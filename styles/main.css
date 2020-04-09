@@ -1985,12 +1985,12 @@ blockquote {
     .nav-toggle .line {
       background-color: #eee !important;
     }.header {
-        width: 960px;
+        width: 1160px;
         margin: 0 auto;
       }
 
       .main-continer {
-        width: 960px;
+        width: 1160px;
         margin: 0 auto;
       }
     body {
@@ -2108,7 +2108,7 @@ blockquote {
     .mist .site-title i {
       background: #FFFFFF7a;
     }.box-scale > #landlord {
-      transform: scale(0.8);
+      transform: scale(1);
     }.box-shadow-wrapper {
       padding: 10px;
     }.box-shadow-wrapper {
