@@ -8,7 +8,7 @@
 <meta name="description" content="大梦一场，人生休狂">
 <meta name="theme-color" content="#b197fc">
 <title>BF算法 | Billy2007&amp;GoneTimeの世界</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1586695175669">
+<link rel="shortcut icon" href="/favicon.ico?v=1586701449974">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -61,6 +61,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -71,6 +73,8 @@
             </li>
           
             
+            
+              
             
             <li class="nav-item ">
               
@@ -83,6 +87,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -94,6 +100,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -103,6 +111,16 @@
               
             </li>
           
+          
+            
+              <li class="nav-item ">
+                <a href="/friends" target="_self">
+                  
+                    fa-ship友情链接
+                  
+                </a>
+              </li>
+            
           
         </ul>
       </nav>
@@ -207,25 +225,10 @@
         
           
             <a class="social-img" href="#">
-              <img src="\media\images\custom-array-imgSocials-1586695082807-socialImg.jpg" />
+              <img src="\media\images\custom-array-imgSocials-1586701447051-socialImg.jpg" />
               <i class="fa fa-wechat" title="微信" ></i>
             </a>
           
-        
-      </div>
-    </div>
-  
-
-  
-    <div class="sidebar-item right-motion sidebar-item-friends">
-      
-        <p class="friends-title">fa-ship友情链接</p>
-      
-      <div class="friends-box">
-        
-          <p>
-            <a href="https://www.luogu.com.cn/blog/desh5555/">Billy2007</a>
-          </p>
         
       </div>
     </div>
@@ -356,6 +359,16 @@
       <span>250<span class="pc-show">字数</span></span>
     </span>
     
+      
+      
+        
+      
+      <span id="/post/bf-suan-fa/" data-flag-title="BF算法" class="meta-item pc-show leancloud_visitors">
+        <span class="post-meta-divider">|</span>
+        <i class="fa fa-eye"></i>
+        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
+      </span>
+    
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
@@ -438,27 +451,23 @@ int main(){
 </div>
               
   
-    
-      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
 <script>
-  var gitalk = new Gitalk({
-    clientID: '5ba3ad477066b5e58777',
-    clientSecret: '608ffabaeee3656f2425ee82c4624ceb54066828',
-    repo: 'ebeo-yvnjiang.github.io',
-    owner: 'Ebeo-Yvnjiang',
-    admin: ['Ebeo-Yvnjiang'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-  gitalk.render('gitalk-container')
+new Valine({
+    el: '#vcomments' ,
+    appId: '',
+    appKey: '',
+    notify: 'true' === 'true', 
+    avatar:'', 
+    placeholder: '',
+    pageSize: '10',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+});
 </script>
-    
-    
-  
 
             </div>
           </div>
