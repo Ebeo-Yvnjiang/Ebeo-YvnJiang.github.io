@@ -8,7 +8,7 @@
 <meta name="description" content="大梦一场，人生休狂">
 <meta name="theme-color" content="#b197fc">
 <title>小黑屋攻略 | Billy2007&amp;GoneTimeの世界</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1586701449974">
+<link rel="shortcut icon" href="/favicon.ico?v=1586701789530">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -226,7 +226,7 @@
         
           
             <a class="social-img" href="#">
-              <img src="\media\images\custom-array-imgSocials-1586701447051-socialImg.jpg" />
+              <img src="\media\images\custom-array-imgSocials-1586701789078-socialImg.jpg" />
               <i class="fa fa-wechat" title="微信" ></i>
             </a>
           
@@ -602,23 +602,27 @@ window.addEventListener('load', function() {
 </div>
               
   
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
-<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+    
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
 <script>
-new Valine({
-    el: '#vcomments' ,
-    appId: '',
-    appKey: '',
-    notify: 'true' === 'true', 
-    avatar:'', 
-    placeholder: '',
-    pageSize: '10',
-    lang: 'zh-cn',
-    visitor: 'true' === 'true',
-    highlight: 'true' === 'true',
-    avatarForce: 'true' === 'false',
-});
+  var gitalk = new Gitalk({
+    clientID: '5ba3ad477066b5e58777',
+    clientSecret: '608ffabaeee3656f2425ee82c4624ceb54066828',
+    repo: 'ebeo-yvnjiang.github.io',
+    owner: 'Ebeo-Yvnjiang',
+    admin: ['Ebeo-Yvnjiang'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
 </script>
+    
+    
+  
 
             </div>
           </div>
