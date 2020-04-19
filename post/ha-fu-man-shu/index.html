@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="大梦一场，人生休狂">
 <meta name="theme-color" content="#b197fc">
-<title>杂项 | Billy2007&amp;GoneTimeの世界</title>
+<title>哈夫曼树 | Billy2007&amp;GoneTimeの世界</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1587269253603">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,7 +27,7 @@
 
 
 
-    <meta name="description" content="杂项" />
+    <meta name="description" content="哈夫曼树" />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -170,7 +170,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -236,6 +237,196 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E7%AD%89%E9%95%BF">等长</a></li>
+<li><a href="#%E4%B8%8D%E7%AD%89%E9%95%BF">不等长</a></li>
+<li><a href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91">哈夫曼树</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+      lList.push(elem);
+    }
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+
+(function() {
+  // 处理不是从#一级标题开始目录
+  if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+    let con = tocContent.children[0].children[0];
+    tocContent.innerHTML = con.innerHTML;
+  }
+  addTocNumber(tocContent, '');
+})();
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop + 10;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+            </div>
           
         
       </div>
@@ -323,22 +514,16 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/za-xiang/">
-      杂项
+    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/ha-fu-man-shu/">
+      哈夫曼树
     </a>
   </h1>
   <div class="post-meta">
     
-      <span class="meta-item">
-        <i class="fa fa-thumb-tack"></i>
-        <span>置顶</span>
-        <span class="post-meta-divider">|</span>
-      </span>
-    
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-02-27</span>
+      <span>2020-04-19</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -349,14 +534,14 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>44<span class="pc-show">字数</span></span>
+      <span>178<span class="pc-show">字数</span></span>
     </span>
     
       
       
         
       
-      <span id="/post/za-xiang/" data-flag-title="杂项" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/ha-fu-man-shu/" data-flag-title="哈夫曼树" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -365,24 +550,49 @@
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <ul>
-<li>该博客作者
-<ol>
-<li>博客搭建 By GoneTime</li>
-<li>博客写作 By Billy2007</li>
-</ol>
-</li>
+                <p>哈夫曼编码有等长和不等长之分。</p>
+<h3 id="等长">等长</h3>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个编码最多可以放<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>个字符。</p>
+<hr>
+<h3 id="不等长">不等长</h3>
+<p>要求：</p>
+<ul>
+<li>频率越高，长度越短；</li>
+<li>一个字符编码不能是另一个字符编码前缀，即不能有二义性；</li>
+<li>编码只有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>.</li>
 </ul>
 <hr>
-<ul>
-<li>这个博客放什么</li>
-<li>主要放Billy2007的一些<strong>非题解</strong>博客。</li>
-</ul>
-<hr>
-<ul>
-<li>GoneTime个人介绍</li>
-<li>咕咕咕……</li>
-</ul>
+<h3 id="哈夫曼树">哈夫曼树</h3>
+<p>假如说现在有一个字符串<code>aaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcdddfee</code></p>
+<p>则里面的<code>a</code>有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span>个，<code>b</code>有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>30</mn></mrow><annotation encoding="application/x-tex">30</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span></span></span></span>个，<code>c</code>有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个，<code>d</code><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span>个，<code>e</code><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>个，<code>f</code><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个。</p>
+<p>则我们编码规则左<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>右<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
+<p>那么我们先去两个最小的字符<code>c</code>,<code>f</code>，构成节点如下所示：<br>
+<code>c1 f1</code>，合并得</p>
+<pre><code> []2
+ /  \
+c1  f1
+</code></pre>
+<p>再选一个最小的：</p>
+<pre><code>   []4
+  /   \
+ []2   e2
+ /  \
+c1  f1
+</code></pre>
+<p>递归即可。</p>
+<p>成果：</p>
+<pre><code>         []40
+        /    \
+       []10   a30
+      /   \
+     []7   d3
+    /   \ 
+   []4   a3
+  /   \
+ []2   e2
+ /  \
+c1  f1
+</code></pre>
 
               </div>
               <div class="post-footer">
@@ -393,7 +603,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ebeo-yvnjiang.github.io/post/za-xiang/" title="杂项">杂项</a>
+      <a href="https://ebeo-yvnjiang.github.io/post/ha-fu-man-shu/" title="哈夫曼树">哈夫曼树</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -407,14 +617,14 @@
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="一些感想" href="https://ebeo-yvnjiang.github.io/post/yi-xie-gan-xiang/">一些感想</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="一些感想" href="https://ebeo-yvnjiang.github.io/post/yi-xie-gan-xiang/">上一篇</a>
+        <a class="nav-pc-next" title="矩阵运算" href="https://ebeo-yvnjiang.github.io/post/ju-zhen-yun-suan/">矩阵运算</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="矩阵运算" href="https://ebeo-yvnjiang.github.io/post/ju-zhen-yun-suan/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title=" 还 我 自 招！抗 议！" href="https://ebeo-yvnjiang.github.io/post/huan-wo-zi-zhao-kang-yi/"> 还 我 自 招！抗 议！</a>
-        <a class="nav-mobile-next" title=" 还 我 自 招！抗 议！" href="https://ebeo-yvnjiang.github.io/post/huan-wo-zi-zhao-kang-yi/">下一篇</a>
+        <a class="nav-pc-next" title="Kruskal" href="https://ebeo-yvnjiang.github.io/post/kruskal/">Kruskal</a>
+        <a class="nav-mobile-next" title="Kruskal" href="https://ebeo-yvnjiang.github.io/post/kruskal/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
