@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="大梦一场，人生休狂">
 <meta name="theme-color" content="#b197fc">
-<title>一些感想 | Billy2007&amp;GoneTimeの世界</title>
+<title>邻接表板子 | Billy2007&amp;GoneTimeの世界</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1587390175955">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,7 +27,7 @@
 
 
 
-    <meta name="description" content="一些感想" />
+    <meta name="description" content="邻接表板子" />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -152,8 +152,7 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -234,191 +233,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E6%B4%BB%E7%9D%80%E5%90%A7">活着吧……</a></li>
-<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E4%BB%AC%E9%83%BD%E8%AF%B4%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AE%80%E5%8D%95%E6%B1%82%E6%95%99qwqwq">为什么你们都说微积分简单，求教qwqwq</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
-let active = 'active-show', activeClass = 'active-current';
-let tocWrapper = document.querySelector('#toc_wrapper');
-let tocContent = tocWrapper.children[0];
-let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
-
-function addTocNumber(elem, deep) {
-  if (!elem) {
-    return;
-  }
-  let prop = elem.__proto__;
-
-  if (prop === HTMLUListElement.prototype) {
-    for (let i = 0; i < elem.children.length; i++) {
-      addTocNumber(elem.children[i], deep + (i + 1) + '.');
-    }
-  } else if (prop === HTMLLIElement.prototype) {
-    // 保存li元素
-    if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-      lList.push(elem);
-    }
-    for (let i = 0; i < elem.children.length; i++) {
-      let cur = elem.children[i];
-      if (cur.__proto__ === HTMLAnchorElement.prototype) {
-        if (autoNumber) {
-          cur.text =  deep + ' ' + cur.text;
-        }
-      } else if (cur.__proto__ === HTMLUListElement.prototype) {
-        addTocNumber(cur, deep);
-      }
-    }
-  }
-}
-
-function removeParentActiveClass() {
-  let parents = tocContent.querySelectorAll('.'+active)
-  parents.forEach(function(elem) {
-    elem.classList.remove(active);
-  });
-}
-
-function addActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.add(activeClass);
-  }
-}
-
-function removeActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.remove(activeClass);
-  }
-}
-
-function addActiveLiElemment(elem, parent) {
-  if (!elem || elem === parent) {
-    return;
-  } else {
-    if (elem.__proto__ === HTMLLIElement.prototype) {
-      elem.classList.add(active);
-    }
-    addActiveLiElemment(elem.parentElement, parent);
-  }
-}
-
-function showToc() {
-  if (tocWrapper) {
-    postBody = document.querySelector('#post_body');
-    for (let i = 0; i < postBody.children.length; i++) {
-      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-        hList.push(postBody.children[i]);
-      }
-    }
-    if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-    } else if (tocWrapper.classList.contains('no_compress')){
-      tocContent.classList.add('expanded');
-    } else {
-      if (hList.length > 10) {
-        active = 'active-hidden'
-        tocContent.classList.add('closed');
-      } else {
-        tocContent.classList.add('expanded');
-      }
-    }
-  }
-}
-
-(function() {
-  // 处理不是从#一级标题开始目录
-  if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-    let con = tocContent.children[0].children[0];
-    tocContent.innerHTML = con.innerHTML;
-  }
-  addTocNumber(tocContent, '');
-})();
-
-document.addEventListener('scroll', function(e) {
-  if (lList.length <= 0) {
-    return;
-  }
-  let scrollTop = document.scrollingElement.scrollTop + 10;
-  let dir;
-
-  if (lastTop - scrollTop > 0) {
-    dir = 'up';
-  } else {
-    dir = 'down';
-  }
-
-  lastTop = scrollTop;
-  if (scrollTop <= 0) {
-    if (lastIndex >= 0 && lastIndex < hList.length) {
-      lList[lastIndex].classList.remove(activeClass);
-    }
-    return;
-  }
-
-  let current = 0, hasFind = false;
-  for (let i = 0; i < hList.length; i++) {
-    if (hList[i].offsetTop > scrollTop) {
-      current = i;
-      hasFind = true;
-      break;
-    }
-  }
-  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-    current = hList.length - 1;
-  } else {
-    current--;
-  }
-  if (dir === 'down') {
-    if (current > lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex) 
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  } else {
-    if (current < lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex);
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  }
-});
-
-window.addEventListener('load', function() {
-  showToc();
-  document.querySelector('#sidebar').style='display: block;';
-  tocWrapper.classList.add('toc-active');
-  setTimeout(function() {
-    if ("createEvent" in document) {
-      let evt = document.createEvent("HTMLEvents");
-      evt.initEvent("scroll", false, true);
-      document.dispatchEvent(evt);
-    }
-    else {
-      document.fireEvent("scroll");
-    }
-  }, 500)
-})
-
-</script>
-            </div>
           
         
       </div>
@@ -506,22 +320,16 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/yi-xie-gan-xiang/">
-      一些感想
+    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/lin-jie-biao-ban-zi/">
+      邻接表板子
     </a>
   </h1>
   <div class="post-meta">
     
-      <span class="meta-item">
-        <i class="fa fa-thumb-tack"></i>
-        <span>置顶</span>
-        <span class="post-meta-divider">|</span>
-      </span>
-    
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-02-28</span>
+      <span>2020-04-20</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -532,14 +340,14 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>42<span class="pc-show">字数</span></span>
+      <span>158<span class="pc-show">字数</span></span>
     </span>
     
       
       
         
       
-      <span id="/post/yi-xie-gan-xiang/" data-flag-title="一些感想" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/lin-jie-biao-ban-zi/" data-flag-title="邻接表板子" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -548,10 +356,46 @@ window.addEventListener('load', function() {
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <h2 id="活着吧">活着吧……</h2>
-<h2 id="为什么你们都说微积分简单求教qwqwq">为什么你们都说微积分简单，求教qwqwq</h2>
-<p>有谁会出题（最好是蓝色+）吗？</p>
-<p>欢迎加团<s>数据删除</s>或私信Billy2007(QQ1920365539)</p>
+                <pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ns &quot;-1&quot;
+#define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)
+#define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)
+#define ll long long
+#define ull unsigned long long
+#define db double
+#define ms(a,b) memset(a,b,sizeof(a))
+#define sz(a) sizeof(a)
+using namespace std;
+const int N=100001,inf=0x3f3f3f3f;
+struct bian{
+	int next,to;
+	bian(){
+		next=0;
+	}
+}e[N];
+int n,m,dfn[N],low[N],num,head[N],totm=1;
+void add(int s,int ed){
+	e[totm].next=head[s];
+	e[totm].to=ed;
+	head[s]=totm++;
+}
+int main(){
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+	cin&gt;&gt;n&gt;&gt;m;
+	fs(i,1,m,1){
+		int u,v;
+		cin&gt;&gt;u&gt;&gt;v;
+		add(u,v);
+		add(v,u);
+	}
+	totm--;
+	
+	return 0;
+}
+
+</code></pre>
 
               </div>
               <div class="post-footer">
@@ -562,7 +406,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ebeo-yvnjiang.github.io/post/yi-xie-gan-xiang/" title="一些感想">一些感想</a>
+      <a href="https://ebeo-yvnjiang.github.io/post/lin-jie-biao-ban-zi/" title="邻接表板子">邻接表板子</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -575,15 +419,11 @@ window.addEventListener('load', function() {
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="[数据删除]" href="https://ebeo-yvnjiang.github.io/post/delated/">[数据删除]</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="[数据删除]" href="https://ebeo-yvnjiang.github.io/post/delated/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="杂项" href="https://ebeo-yvnjiang.github.io/post/za-xiang/">杂项</a>
-        <a class="nav-mobile-next" title="杂项" href="https://ebeo-yvnjiang.github.io/post/za-xiang/">下一篇</a>
+        <a class="nav-pc-next" title="线性规划" href="https://ebeo-yvnjiang.github.io/post/xian-xing-gui-hua/">线性规划</a>
+        <a class="nav-mobile-next" title="线性规划" href="https://ebeo-yvnjiang.github.io/post/xian-xing-gui-hua/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
