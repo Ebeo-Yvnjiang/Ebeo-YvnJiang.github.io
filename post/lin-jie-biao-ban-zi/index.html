@@ -8,7 +8,7 @@
 <meta name="description" content="大梦一场，人生休狂">
 <meta name="theme-color" content="#b197fc">
 <title>邻接表板子 | Billy2007&amp;GoneTimeの世界</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1587390175955">
+<link rel="shortcut icon" href="/favicon.ico?v=1587392338157">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -340,7 +340,7 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>158<span class="pc-show">字数</span></span>
+      <span>157<span class="pc-show">字数</span></span>
     </span>
     
       
@@ -373,11 +373,11 @@ struct bian{
 		next=0;
 	}
 }e[N];
-int n,m,dfn[N],low[N],num,head[N],totm=1;
+int n,m,dfn[N],low[N],num,head[N],totm;
 void add(int s,int ed){
-	e[totm].next=head[s];
+	e[++totm].next=head[s];
 	e[totm].to=ed;
-	head[s]=totm++;
+	head[s]=totm;
 }
 int main(){
 	ios::sync_with_stdio(false);
