@@ -1994,16 +1994,16 @@ blockquote {
         margin: 0 auto;
       }
     body {
-      color: #74c0fc;
+      color: #51cf66;
     }
     .next-md-body {
-      color: #74c0fc;
+      color: #51cf66;
     }
     .next-md-body h1, .next-md-body h2 {
-      border-bottom-color: #74c0fc;
+      border-bottom-color: #51cf66;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #94d82d7a;
+      background: #f767077a;
     }h1, h2, h3, h4, h5, h6 {
       color: #f03e3e;
     }
@@ -2087,7 +2087,7 @@ blockquote {
       color: #fc6423;
       border-bottom-color: #fc6423;
     }.bg-color {
-      background-color: #ffd43b7a;
+      background-color: #f08c007a;
     }
       .site-meta {
         background: #b197fc !important;
