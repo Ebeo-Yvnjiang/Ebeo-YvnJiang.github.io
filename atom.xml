@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-04-30T02:48:49.218Z</updated>
+    <updated>2020-04-30T02:51:42.244Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -89,15 +89,17 @@
 using namespace std;
 const int N=100001,inf=0x3f3f3f3f;
 struct bian{
-	int next,to;
+	int next,to,w;
 	bian(){
+        w=0;
 		next=0;
 	}
 }e[N];
 int n,m,head[N],totm;
-void add(int s,int ed){
+void add(int s,int ed,int rm=0){
 	e[++totm].next=head[s];
 	e[totm].to=ed;
+    e[totm].w=rm;
 	head[s]=totm;
 }
 int main(){

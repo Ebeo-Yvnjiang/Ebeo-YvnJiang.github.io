@@ -8,7 +8,7 @@
 <meta name="description" content="大梦一场，人生休狂">
 <meta name="theme-color" content="#b197fc">
 <title>邻接表板子 | Billy2007&amp;GoneTimeの世界</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1588214925498">
+<link rel="shortcut icon" href="/favicon.ico?v=1588215098248">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -338,12 +338,12 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>152<span class="pc-show">字数</span></span>
+      <span>162<span class="pc-show">字数</span></span>
     </span>
     
       
@@ -371,15 +371,17 @@
 using namespace std;
 const int N=100001,inf=0x3f3f3f3f;
 struct bian{
-	int next,to;
+	int next,to,w;
 	bian(){
+        w=0;
 		next=0;
 	}
 }e[N];
 int n,m,head[N],totm;
-void add(int s,int ed){
+void add(int s,int ed,int rm=0){
 	e[++totm].next=head[s];
 	e[totm].to=ed;
+    e[totm].w=rm;
 	head[s]=totm;
 }
 int main(){
