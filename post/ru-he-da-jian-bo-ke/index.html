@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="大梦一场，人生休狂">
 <meta name="theme-color" content="#b197fc">
-<title>NOIP要点 | Billy2007&amp;GoneTimeの世界</title>
+<title>如何搭建博客 | Billy2007&amp;GoneTimeの世界</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1589957538741">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,8 +27,8 @@
 
 
 
-    <meta name="description" content="NOIP要点" />
-    <meta name="keywords" content="OI" />
+    <meta name="description" content="如何搭建博客" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -170,7 +170,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -229,6 +230,203 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#0-%E5%89%8D%E8%A8%80">0. 前言</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%88%E4%B8%8A%E6%95%88%E6%9E%9C%E8%BF%99%E9%87%8C">先上效果：这里</a>
+<ul>
+<li><a href="#1-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">1. 准备工作</a></li>
+<li><a href="#2-%E5%BC%80%E5%A7%8B%E5%90%A7%E6%B3%A8%E5%86%8C%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D">2. 开始吧——注册二级域名</a></li>
+<li><a href="#3-%E9%87%8D%E5%A4%B4%E6%88%8F%E6%B3%A8%E5%86%8C%E5%9F%9F%E5%90%8D">3. 重头戏——注册域名</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%9A%E6%89%8D%E6%88%91%E4%BB%AC%E6%B3%A8%E5%86%8C%E4%BA%86%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%8B%AC%E7%AB%8B%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%90%8D">刚才，我们注册了一个自己的独立顶级域名！</a>
+<ul>
+<li><a href="#4-%E6%9C%80%E5%90%8E%E4%B8%80%E6%AD%A5%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90">4. 最后一步：域名解析</a></li>
+</ul>
+</li>
+<li><a href="#%E7%8E%B0%E5%9C%A8%E4%BD%A0%E6%8B%A5%E6%9C%89%E4%BA%86%E4%B8%80%E4%B8%AA%E7%8B%AC%E7%AB%8B%E5%AE%8C%E6%95%B4%E7%9A%84%E5%9F%9F%E5%90%8D%E5%BF%AB%E5%8E%BB%E7%BB%99%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%82%B9%E8%B5%9E%E5%90%A7qwq">现在，你拥有了一个独立完整的域名，快去给这个博客点赞吧QwQ</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+      lList.push(elem);
+    }
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+
+(function() {
+  // 处理不是从#一级标题开始目录
+  if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+    let con = tocContent.children[0].children[0];
+    tocContent.innerHTML = con.innerHTML;
+  }
+  addTocNumber(tocContent, '');
+})();
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop + 10;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+            </div>
           
         
       </div>
@@ -316,8 +514,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/noip-yao-dian/">
-      NOIP要点
+    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/ru-he-da-jian-bo-ke/">
+      如何搭建博客
     </a>
   </h1>
   <div class="post-meta">
@@ -325,38 +523,25 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-02-26</span>
+      <span>2020-05-20</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://ebeo-yvnjiang.github.io/tag/oi/">
-              <span>OI</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>241<span class="pc-show">字数</span></span>
+      <span>876<span class="pc-show">字数</span></span>
     </span>
     
       
       
         
       
-      <span id="/post/noip-yao-dian/" data-flag-title="NOIP要点" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/ru-he-da-jian-bo-ke/" data-flag-title="如何搭建博客" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -365,57 +550,69 @@
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <ul>
-<li>文件操作不可以用sync！</li>
-<li>bits/stdc++.h中，变量注意重名！</li>
-<li>不阔以用</li>
-</ul>
-<pre><code>x0,x1,y0,y1,time,pipe,next,max,min,sort,tm,pow等等……
-</code></pre>
+                <h2 id="0-前言">0. 前言</h2>
+<p>众所周知我们可以用Github的<code>.github.io</code>域名，但是这样的话总有点不舒坦。</p>
+<p>所以，作者今天教你<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>元搭建自己的顶级域名，预计耗时一个小时，写完后将会同步到<a href="">这里</a>。</p>
+<h1 id="先上效果这里">先上效果：<a href="https://www.billy2007.tk">这里</a></h1>
+<h2 id="1-准备工作">1. 准备工作</h2>
 <ul>
-<li>文件名必须复制黏贴</li>
-<li>文件名必须小写！！！</li>
-<li>在windows下，freopen不加cstdio不会报错</li>
-<li></li>
+<li>Firefox浏览器（<strong>只有Firefox才可以上</strong>）</li>
+<li>邮箱（貌似现在用不了了）/Google账号</li>
+<li><a href="https://github.com">Github</a>账号</li>
 </ul>
-<pre><code>freopen(&quot;.in&quot;,&quot;r&quot;,stdin);
-freopen(&quot;.out&quot;,&quot;w&quot;,stdout&quot;);
-//……
-fclose(stdin);
-fclose(stdout);
-return 0;
-</code></pre>
-<ul>
-<li>T3与T4必须放弃一题！（除非都会或者T1T2都<strong>确认</strong>AC <strong>（至少构造5组数据AC）</strong>）才可以</li>
-<li>RP++</li>
-<li>头文件！</li>
-</ul>
-<pre><code class="language-cpp">&lt;iostream&gt;
-&lt;cstdio&gt;
-&lt;cmath&gt;
-&lt;algorithm&gt;
-&lt;vector&gt;
-&lt;queue&gt;
-&lt;cstring&gt;
-&lt;cstdlib&gt;
-</code></pre>
-<ul>
-<li>最好不要用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mi>i</mi><mi>t</mi><mi>s</mi><mi mathvariant="normal">/</mi><mi>s</mi><mi>t</mi><mi>d</mi><mi>c</mi><mo>+</mo><mo>+</mo><mi mathvariant="normal">.</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">bits/stdc++.h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mord">/</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault">d</span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">.</span><span class="mord mathdefault">h</span></span></span></span></li>
-<li>最好定义全局变量</li>
-<li>不要用gets</li>
-<li>cout控制位数：</li>
-</ul>
-<pre><code class="language-cpp">#include&lt;iomanip&gt;
-double x;int n;
-cout&lt;&lt;fixed&lt;&lt;setprecision(n)&lt;&lt;x;
-</code></pre>
-<ul>
-<li>评测机太慢了， <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O( n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 只能踩1000000。</li>
-<li>否则就用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> 算法。</li>
-<li>尽量不要用指针。</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>+</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">a+i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>=<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">a[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span>。</li>
-<li>inf必须是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mi>x</mi><mn>7</mn><mi>f</mi><mi>f</mi><mi>f</mi><mi>f</mi><mi>f</mi><mi>f</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">0x7fffffff</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mord mathdefault">x</span><span class="mord">7</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span> !</li>
-</ul>
+<h2 id="2-开始吧注册二级域名">2. 开始吧——注册二级域名</h2>
+<p>有<code>.github.io</code>的可以跳过这章。</p>
+<p>首先，我们购买域名的网站叫<code>freenom</code>，是世界上<strong>唯一一个</strong>提供免费域名的网站，地址在<a href="https://freenom.com"><strong>这里</strong></a>。</p>
+<p>如果你发现上不了，你可能需要明白，这是一个国外网站。</p>
+<p>然后，你需要一个Github仓库，名字为<code>Github的用户名.github.io</code>。</p>
+<p>图如下所示，<br>
+<img src="https://i.loli.net/2020/05/20/Cdp3wynjqOkxuPb.png" alt="" loading="lazy"><br>
+点绿色按钮<code>new</code>。</p>
+<p>接下来点开<code>new</code>以后，你会发现界面如下图所示，<br>
+<img src="https://i.loli.net/2020/05/20/8wZCAz5JHT7dQno.png" alt="" loading="lazy"><br>
+在<code>Repository name</code>里面写<code>Github的用户名.github.io</code>，比如我的小号（为了教你们专门开了个小号）用户名是<code>GoneTime-qwq</code>（大号<code>Ebeo-Yvnjiang</code>），那么<code>Repository name</code>就写<code>GoneTime-qwq.github.io</code>，大号就要填<code>Ebeo-Yvnjiang.github.io</code>。</p>
+<p>然后选择<code>public</code>，<code>Description</code>写<code>connect AK IOI</code>，<code>Initialize this repository with a README</code>也要勾选。</p>
+<p>然后输入<code>Github的用户名.github.io</code>，看看打开了没，如果打开了，关掉网页，我们开始扒拉<code>freenom</code>上的内容。</p>
+<h2 id="3-重头戏注册域名">3. 重头戏——注册域名</h2>
+<p>打开<a href="https://freenom.com"><code>freenom</code></a>，我们会发现如下一幕：<br>
+<img src="https://i.loli.net/2020/05/20/QfwI2AX38asRd1m.png" alt="" loading="lazy"><br>
+（Ps：背景图可能不同，可能有加载延迟，属正常现象。）</p>
+<p>接下来点<code>登入</code>，看到<br>
+<img src="https://i.loli.net/2020/05/20/EARHUdmpeLbvWS6.png" alt="" loading="lazy"><br>
+按操作注册（理论上来讲下面还有一个邮箱注册，因人而异）即可。</p>
+<p>接下来登录，会看到<br>
+<img src="https://i.loli.net/2020/05/20/u1aCBljTDE8OINK.png" alt="" loading="lazy"><br>
+（Ps：我是一打开就截图，可能会出现白的情况，理论上来讲我一截完图就好了）</p>
+<p>点右边的<code>Services</code>，再点<code>Register a new domain</code>，会看到下图：<br>
+<img src="https://i.loli.net/2020/05/20/mzeNJvdGsTPrUY5.png" alt="" loading="lazy"><br>
+在输入框里输入你想要的域名名称（比如我的<code>www.billy2007.tk</code>就输入<code>billy2007</code>），点击<code>Check Availability</code>，会看到：<br>
+<img src="https://i.loli.net/2020/05/20/D6wfndGg3PoOFt2.png" alt="" loading="lazy"><br>
+（这是可用的情况，如果不可用的话会放在下图）<br>
+<img src="https://i.loli.net/2020/05/20/D6wfndGg3PoOFt2.png" alt="" loading="lazy"><br>
+其中不能用的域名就会有一个×（比如上图的<a href="https://www.ak-ioi.cf"><code>ak-ioi.cf</code></a>是@rui_er 神仙的网站，被注册了），否则能用。</p>
+<p>点<code>Get it now!</code>注册，然后点右上角的<code>Checkout</code>，看到<br>
+<img src="https://i.loli.net/2020/05/20/N3rPkWtK5wGHEuz.png" alt="" loading="lazy"><br>
+，<code>Preiod</code>点<code>12 months@FREE</code>，然后<code>Continue</code>。</p>
+<p>然后就没啥好说的了，按流程注册即可。</p>
+<p>然后就OK了。</p>
+<h1 id="刚才我们注册了一个自己的独立顶级域名">刚才，我们注册了一个自己的独立顶级域名！</h1>
+<h2 id="4-最后一步域名解析">4. 最后一步：域名解析</h2>
+<blockquote>
+<p>我们有了武器，还需要大炮把它送出去。</p>
+</blockquote>
+<p>所以，我们有了域名，还要对其进行解析。</p>
+<p>这时候，我们的<code>.github.io</code>域名就派上用场了。</p>
+<p>先回到主页，点击<code>Services</code>，点<code>My Domains</code>，选你的域名，点<code>Manage Domain</code>，里面选<code>Manage Freenom DNS</code>，看到下图。<br>
+<img src="https://i.loli.net/2020/05/20/rkwx7jsTbvOSYWq.png" alt="" loading="lazy"><br>
+（Ps：这是我的，你们自然空空如也）</p>
+<p>在下面的<code>name</code>填<code>www</code>，<code>Type</code>选<code>CNAME</code>，<code>TTL</code>不要管，<code>Target</code>选<code>Github的用户名.github.io</code>。</p>
+<p>然后<strong>点<code>Save Changes</code></strong>，关闭<code>freenom</code>，打开Github。</p>
+<hr>
+<p>接下来是Github端的操作。</p>
+<p>打开Github，点开仓库，选择<code>Create new file</code>，命名为<code>CNAME</code>，文件内容<code>www.你在freenom上选的名字.你在freenom上的后缀</code>。</p>
+<p>比如我是<code>dolta.billy2007.tk</code>（Ps：不要学我，这样不好），那么我的<code>CNAME</code>上就写<code>dolta.billy2007.tk</code>。</p>
+<p>最后的最后，你可以使用<code>Gridea</code>，<code>Hexo</code>等美化你的界面，此处不讲了。</p>
+<h1 id="现在你拥有了一个独立完整的域名快去给这个博客点赞吧qwq">现在，你拥有了一个独立完整的域名，快去给这个博客点赞吧QwQ</h1>
 
               </div>
               <div class="post-footer">
@@ -426,7 +623,7 @@ cout&lt;&lt;fixed&lt;&lt;setprecision(n)&lt;&lt;x;
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ebeo-yvnjiang.github.io/post/noip-yao-dian/" title="NOIP要点">NOIP要点</a>
+      <a href="https://ebeo-yvnjiang.github.io/post/ru-he-da-jian-bo-ke/" title="如何搭建博客">如何搭建博客</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -435,21 +632,15 @@ cout&lt;&lt;fixed&lt;&lt;setprecision(n)&lt;&lt;x;
   </ul>
   <div class="tags">
     
-      <a href="https://ebeo-yvnjiang.github.io/tag/oi/"># OI</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Test Game" href="https://ebeo-yvnjiang.github.io/post/test-game/">Test Game</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Test Game" href="https://ebeo-yvnjiang.github.io/post/test-game/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="BF算法" href="https://ebeo-yvnjiang.github.io/post/bf-suan-fa/">BF算法</a>
-        <a class="nav-mobile-next" title="BF算法" href="https://ebeo-yvnjiang.github.io/post/bf-suan-fa/">下一篇</a>
+        <a class="nav-pc-next" title="求证根号a+根号b是无理数" href="https://ebeo-yvnjiang.github.io/post/qiu-zheng-gen-hao-agen-hao-b-shi-wu-li-shu/">求证根号a+根号b是无理数</a>
+        <a class="nav-mobile-next" title="求证根号a+根号b是无理数" href="https://ebeo-yvnjiang.github.io/post/qiu-zheng-gen-hao-agen-hao-b-shi-wu-li-shu/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

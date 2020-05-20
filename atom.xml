@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-05-16T07:08:58.239Z</updated>
+    <updated>2020-05-20T06:52:23.191Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -10,6 +10,77 @@
     <logo>https://ebeo-yvnjiang.github.io/images/avatar.png</logo>
     <icon>https://ebeo-yvnjiang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Billy2007&amp;GoneTimeの世界</rights>
+    <entry>
+        <title type="html"><![CDATA[如何搭建博客]]></title>
+        <id>https://ebeo-yvnjiang.github.io/post/ru-he-da-jian-bo-ke/</id>
+        <link href="https://ebeo-yvnjiang.github.io/post/ru-he-da-jian-bo-ke/">
+        </link>
+        <updated>2020-05-20T06:52:10.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="0-前言">0. 前言</h2>
+<p>众所周知我们可以用Github的<code>.github.io</code>域名，但是这样的话总有点不舒坦。</p>
+<p>所以，作者今天教你<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>元搭建自己的顶级域名，预计耗时一个小时，写完后将会同步到<a href="">这里</a>。</p>
+<h1 id="先上效果这里">先上效果：<a href="https://www.billy2007.tk">这里</a></h1>
+<h2 id="1-准备工作">1. 准备工作</h2>
+<ul>
+<li>Firefox浏览器（<strong>只有Firefox才可以上</strong>）</li>
+<li>邮箱（貌似现在用不了了）/Google账号</li>
+<li><a href="https://github.com">Github</a>账号</li>
+</ul>
+<h2 id="2-开始吧注册二级域名">2. 开始吧——注册二级域名</h2>
+<p>有<code>.github.io</code>的可以跳过这章。</p>
+<p>首先，我们购买域名的网站叫<code>freenom</code>，是世界上<strong>唯一一个</strong>提供免费域名的网站，地址在<a href="https://freenom.com"><strong>这里</strong></a>。</p>
+<p>如果你发现上不了，你可能需要明白，这是一个国外网站。</p>
+<p>然后，你需要一个Github仓库，名字为<code>Github的用户名.github.io</code>。</p>
+<p>图如下所示，<br>
+<img src="https://i.loli.net/2020/05/20/Cdp3wynjqOkxuPb.png" alt="" loading="lazy"><br>
+点绿色按钮<code>new</code>。</p>
+<p>接下来点开<code>new</code>以后，你会发现界面如下图所示，<br>
+<img src="https://i.loli.net/2020/05/20/8wZCAz5JHT7dQno.png" alt="" loading="lazy"><br>
+在<code>Repository name</code>里面写<code>Github的用户名.github.io</code>，比如我的小号（为了教你们专门开了个小号）用户名是<code>GoneTime-qwq</code>（大号<code>Ebeo-Yvnjiang</code>），那么<code>Repository name</code>就写<code>GoneTime-qwq.github.io</code>，大号就要填<code>Ebeo-Yvnjiang.github.io</code>。</p>
+<p>然后选择<code>public</code>，<code>Description</code>写<code>connect AK IOI</code>，<code>Initialize this repository with a README</code>也要勾选。</p>
+<p>然后输入<code>Github的用户名.github.io</code>，看看打开了没，如果打开了，关掉网页，我们开始扒拉<code>freenom</code>上的内容。</p>
+<h2 id="3-重头戏注册域名">3. 重头戏——注册域名</h2>
+<p>打开<a href="https://freenom.com"><code>freenom</code></a>，我们会发现如下一幕：<br>
+<img src="https://i.loli.net/2020/05/20/QfwI2AX38asRd1m.png" alt="" loading="lazy"><br>
+（Ps：背景图可能不同，可能有加载延迟，属正常现象。）</p>
+<p>接下来点<code>登入</code>，看到<br>
+<img src="https://i.loli.net/2020/05/20/EARHUdmpeLbvWS6.png" alt="" loading="lazy"><br>
+按操作注册（理论上来讲下面还有一个邮箱注册，因人而异）即可。</p>
+<p>接下来登录，会看到<br>
+<img src="https://i.loli.net/2020/05/20/u1aCBljTDE8OINK.png" alt="" loading="lazy"><br>
+（Ps：我是一打开就截图，可能会出现白的情况，理论上来讲我一截完图就好了）</p>
+<p>点右边的<code>Services</code>，再点<code>Register a new domain</code>，会看到下图：<br>
+<img src="https://i.loli.net/2020/05/20/mzeNJvdGsTPrUY5.png" alt="" loading="lazy"><br>
+在输入框里输入你想要的域名名称（比如我的<code>www.billy2007.tk</code>就输入<code>billy2007</code>），点击<code>Check Availability</code>，会看到：<br>
+<img src="https://i.loli.net/2020/05/20/D6wfndGg3PoOFt2.png" alt="" loading="lazy"><br>
+（这是可用的情况，如果不可用的话会放在下图）<br>
+<img src="https://i.loli.net/2020/05/20/D6wfndGg3PoOFt2.png" alt="" loading="lazy"><br>
+其中不能用的域名就会有一个×（比如上图的<a href="https://www.ak-ioi.cf"><code>ak-ioi.cf</code></a>是@rui_er 神仙的网站，被注册了），否则能用。</p>
+<p>点<code>Get it now!</code>注册，然后点右上角的<code>Checkout</code>，看到<br>
+<img src="https://i.loli.net/2020/05/20/N3rPkWtK5wGHEuz.png" alt="" loading="lazy"><br>
+，<code>Preiod</code>点<code>12 months@FREE</code>，然后<code>Continue</code>。</p>
+<p>然后就没啥好说的了，按流程注册即可。</p>
+<p>然后就OK了。</p>
+<h1 id="刚才我们注册了一个自己的独立顶级域名">刚才，我们注册了一个自己的独立顶级域名！</h1>
+<h2 id="4-最后一步域名解析">4. 最后一步：域名解析</h2>
+<blockquote>
+<p>我们有了武器，还需要大炮把它送出去。</p>
+</blockquote>
+<p>所以，我们有了域名，还要对其进行解析。</p>
+<p>这时候，我们的<code>.github.io</code>域名就派上用场了。</p>
+<p>先回到主页，点击<code>Services</code>，点<code>My Domains</code>，选你的域名，点<code>Manage Domain</code>，里面选<code>Manage Freenom DNS</code>，看到下图。<br>
+<img src="https://i.loli.net/2020/05/20/rkwx7jsTbvOSYWq.png" alt="" loading="lazy"><br>
+（Ps：这是我的，你们自然空空如也）</p>
+<p>在下面的<code>name</code>填<code>www</code>，<code>Type</code>选<code>CNAME</code>，<code>TTL</code>不要管，<code>Target</code>选<code>Github的用户名.github.io</code>。</p>
+<p>然后<strong>点<code>Save Changes</code></strong>，关闭<code>freenom</code>，打开Github。</p>
+<hr>
+<p>接下来是Github端的操作。</p>
+<p>打开Github，点开仓库，选择<code>Create new file</code>，命名为<code>CNAME</code>，文件内容<code>www.你在freenom上选的名字.你在freenom上的后缀</code>。</p>
+<p>比如我是<code>dolta.billy2007.tk</code>（Ps：不要学我，这样不好），那么我的<code>CNAME</code>上就写<code>dolta.billy2007.tk</code>。</p>
+<p>最后的最后，你可以使用<code>Gridea</code>，<code>Hexo</code>等美化你的界面，此处不讲了。</p>
+<h1 id="现在你拥有了一个独立完整的域名快去给这个博客点赞吧qwq">现在，你拥有了一个独立完整的域名，快去给这个博客点赞吧QwQ</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[求证根号a+根号b是无理数]]></title>
         <id>https://ebeo-yvnjiang.github.io/post/qiu-zheng-gen-hao-agen-hao-b-shi-wu-li-shu/</id>
@@ -655,92 +726,6 @@ c1  f1
  []2   e2
  /  \
 c1  f1
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Kruskal]]></title>
-        <id>https://ebeo-yvnjiang.github.io/post/kruskal/</id>
-        <link href="https://ebeo-yvnjiang.github.io/post/kruskal/">
-        </link>
-        <updated>2020-04-17T08:26:42.000Z</updated>
-        <content type="html"><![CDATA[<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
-#define ns &quot;-1&quot;
-#define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)
-#define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)
-#define ll long long
-#define ull unsigned long long
-#define db double
-#define ms(a,b) memset(a,b,sizeof(a))
-#define sz(a) sizeof(a)
-using namespace std;
-const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};
-const int N=1000001,inf=0x7f7f7f7f;
-struct bian{
-	int u,v,w;
-}a[N];
-inline int read(){
-	int date=0,w=1;char c=0;
-	while(c&lt;'0'||c&gt;'9'){if(c=='-')w=-1;c=getchar();}
-	while(c&gt;='0'&amp;&amp;c&lt;='9'){date=date*10+c-'0';c=getchar();}
-	return date*w;
-}
-bool cmp(bian a,bian b){
-	return a.w&lt;b.w;
-}
-int n,m,fa[N],ans;
-int find(int x){
-	if(fa[x]==x) return x;
-	return fa[x]=find(fa[x]);
-}
-void merge(int u,int v){
-	u=find(u);
-	v=find(v);
-	fa[max(u,v)]=min(u,v);
-}
-int finding=1,now=1;
-void kruskal(){
-	while(finding&lt;=n-1){
-		bool ak=0;
-		while(!ak){
-			if(find(a[now].u)!=find(a[now].v)){
-				merge(a[now].u,a[now].v);
-				ak=1;
-				ans+=a[now].w;
-				finding++;
-			}
-			now++;
-			if(now&gt;m&amp;&amp;!ak){
-				return;
-			}
-		}
-		//cout&lt;&lt;&quot;OK\n&quot;;
-	}
-}
-int main(){
-	//freopen(&quot;p3366_2.in&quot;,&quot;r&quot;,stdin);
-	//freopen(&quot;qwq.txt&quot;,&quot;w&quot;,stdout);
-	n=read(),m=read();
-	if(m&lt;n-1){
-		printf(&quot;orz&quot;);
-		return 0;
-	}
-	fs(i,1,n,1) fa[i]=i;
-	fs(i,1,m,1){
-		a[i].u=read();
-		a[i].v=read();
-		a[i].w=read();
-		//printf(&quot;OK%d\n&quot;,i);
-	}
-	//printf(&quot;OKK\n&quot;);
-	//system(&quot;pause&quot;);
-	sort(a+1,a+m+1,cmp);
-	//printf(&quot;OK\n&quot;);
-	kruskal();
-	if(finding==n) printf(&quot;%d&quot;,ans);
-	else printf(&quot;orz&quot;);
-	return 0;
-}
 </code></pre>
 ]]></content>
     </entry>
