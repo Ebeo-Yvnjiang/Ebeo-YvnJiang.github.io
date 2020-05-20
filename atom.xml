@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-05-20T09:28:27.947Z</updated>
+    <updated>2020-05-20T10:23:53.194Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -18,7 +18,7 @@
         <updated>2020-05-20T06:52:10.000Z</updated>
         <content type="html"><![CDATA[<h2 id="0-前言">0. 前言</h2>
 <p>众所周知我们可以用Github的<code>.github.io</code>域名，但是这样的话总有点不舒坦。</p>
-<p>所以，作者今天教你<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>元搭建自己的顶级域名，预计耗时一个小时。</p>
+<p>所以，作者今天教你<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>元搭建自己的顶级域名，预计耗时一个小时，写完后将会同步到<a href="http://dolta.billy2007.tk/post/ru-he-da-jian-bo-ke/">这里</a>。</p>
 <h1 id="先上效果这里">先上效果：<a href="https://www.billy2007.tk">这里</a></h1>
 <h2 id="1-准备工作">1. 准备工作</h2>
 <ul>
@@ -54,7 +54,7 @@
 在输入框里输入你想要的域名名称（比如我的<code>www.billy2007.tk</code>就输入<code>billy2007</code>），点击<code>Check Availability</code>，会看到：<br>
 <img src="https://i.loli.net/2020/05/20/D6wfndGg3PoOFt2.png" alt="" loading="lazy"><br>
 （这是可用的情况，如果不可用的话会放在下图）<br>
-<img src="https://i.loli.net/2020/05/20/D6wfndGg3PoOFt2.png" alt="" loading="lazy"><br>
+<img src="https://i.loli.net/2020/05/20/UbFmqGfJoDenOLV.png" alt="" loading="lazy"><br>
 其中不能用的域名就会有一个×（比如上图的<a href="https://www.ak-ioi.cf"><code>ak-ioi.cf</code></a>是@rui_er 神仙的网站，被注册了），否则能用。</p>
 <p>点<code>Get it now!</code>注册，然后点右上角的<code>Checkout</code>，看到<br>
 <img src="https://i.loli.net/2020/05/20/N3rPkWtK5wGHEuz.png" alt="" loading="lazy"><br>
@@ -78,6 +78,8 @@
 <p>打开Github，点开仓库，选择<code>Create new file</code>，命名为<code>CNAME</code>，文件内容<code>www.你在freenom上选的名字.你在freenom上的后缀</code>。</p>
 <p>比如我是<code>dolta.billy2007.tk</code>（Ps：不要学我，这样不好），那么我的<code>CNAME</code>上就写<code>dolta.billy2007.tk</code>。</p>
 <p>最后的最后，你可以使用<code>Gridea</code>，<code>Hexo</code>等美化你的界面，此处不讲了。</p>
+<p>Github可能需要一段时间才会把这个装配好。</p>
+<h1 id="备注这个过程很长可能要几个小时稍安勿躁最长要半天最短要五秒">备注：这个过程很长，可能要几个小时，稍安勿躁，最长要半天，最短要五秒。</h1>
 <h1 id="现在你拥有了一个独立完整的域名快去给这个博客点赞吧qwq">现在，你拥有了一个独立完整的域名，快去给这个博客点赞吧QwQ</h1>
 ]]></content>
     </entry>
