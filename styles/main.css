@@ -1994,13 +1994,13 @@ blockquote {
         margin: 0 auto;
       }
     body {
-      color: #ff922b;
+      color: #fd7e14;
     }
     .next-md-body {
-      color: #ff922b;
+      color: #fd7e14;
     }
     .next-md-body h1, .next-md-body h2 {
-      border-bottom-color: #ff922b;
+      border-bottom-color: #fd7e14;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
       background: #f767077a;
