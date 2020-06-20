@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="萧索，飘摇。">
 <meta name="theme-color" content="#b197fc">
-<title>小说 | Billy2007&amp;GoneTimeの世界</title>
+<title>Trie | Billy2007&amp;GoneTimeの世界</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1592645658363">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,8 +27,8 @@
 
 
 
-    <meta name="description" content="小说" />
-    <meta name="keywords" content="小说" />
+    <meta name="description" content="Trie" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -235,31 +235,13 @@
               <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number auto" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
-<li><a href="#00%E5%BC%80%E5%BA%97">00——开店</a><br>
-*
+<li>
 <ul>
-<li><a href="#%E5%A4%A9%E5%93%AA">天哪！</a></li>
+<li><a href="#1-trie%E6%98%AF%E4%BB%80%E4%B9%88">1. Trie是什么</a></li>
+<li><a href="#2-trie%E6%A0%91%E7%9A%84%E6%9E%84%E9%80%A0">2. Trie树的构造</a></li>
+<li><a href="#3-%E8%8A%82%E7%82%B9%E7%9A%84%E7%BB%9F%E8%AE%A1">3. 节点的统计</a></li>
 </ul>
 </li>
-<li><a href="#01%E9%A1%BE%E5%AE%A2">01——顾客</a></li>
-<li><a href="#02%E7%96%91%E6%83%91">02——疑惑</a></li>
-<li><a href="#03%E9%81%97%E8%BF%B9">03——遗迹</a></li>
-<li><a href="#04jfca%E6%97%A5%E8%AE%B0">04——JFCA日记</a></li>
-<li><a href="#05%E7%8A%87%E7%8A%87%E7%9A%84%E7%A7%98%E5%AF%86">05——犇犇的秘密</a>
-<ul>
-<li><a href="#%E7%8A%87%E7%8A%87%E6%B2%A1%E4%BA%86">犇犇没了？</a></li>
-</ul>
-</li>
-<li><a href="#06spfa%E7%9A%84%E9%97%AE%E9%A2%98">06——SPFA的问题</a></li>
-<li><a href="#07%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%86%B3%E6%96%97">07——第一次决斗</a></li>
-<li><a href="#08%E7%AC%AC1%E6%9D%A1%E7%BA%BF%E7%B4%A2">08——第1条线索</a></li>
-<li><a href="#09%E7%9B%AE%E5%89%8D%E7%9A%84%E7%BB%93%E5%B0%BE">09——目前的结尾</a></li>
-<li><a href="#10%E6%B4%9B%E8%B0%B7%E5%8D%81%E5%AD%97%E5%86%9B">10——洛谷十字军</a></li>
-<li><a href="#11%E6%A2%A6%E4%B9%8B%E5%9C%B0%E4%B8%8E%E7%81%8C%E6%B0%B4">11——梦之地与灌水</a></li>
-<li><a href="#12%E6%A2%A6%E7%9A%84%E6%BA%90%E5%A4%B4">12——梦的源头</a></li>
-<li><a href="#13%E5%BC%80%E8%BD%A6%E4%BA%8B%E4%BB%B6">13——开车事件</a></li>
-<li><a href="#14%E8%B0%94%E8%B0%94">14——谔谔</a></li>
 </ul>
 
   </div>
@@ -521,8 +503,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/xiao-shuo/">
-      小说
+    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/trie/">
+      Trie
     </a>
   </h1>
   <div class="post-meta">
@@ -530,38 +512,25 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-02-25</span>
+      <span>2020-06-20</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://ebeo-yvnjiang.github.io/tag/xiaoshuo/">
-              <span>小说</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>6分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1612<span class="pc-show">字数</span></span>
+      <span>1024<span class="pc-show">字数</span></span>
     </span>
     
       
       
         
       
-      <span id="/post/xiao-shuo/" data-flag-title="小说" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/trie/" data-flag-title="Trie" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -570,163 +539,67 @@ window.addEventListener('load', function() {
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <h1 id="前言">前言</h1>
-<hr>
-<p>Billy2007是一个蒟蒻。</p>
-<p>这一天，他想去犇犇茶馆喝茶。</p>
-<p>天空风和日丽，他叫了辆出租车。</p>
-<p>“去巨佬区，犇犇茶馆！”他喊道。</p>
-<p>发动机响起，Billy2007看着路牌：</p>
-<pre><code class="language-cpp">
-S20外环隧道方向
-</code></pre>
-<p>“2333。”他说，“当年kkksc03也是在这开的车……”</p>
-<p>司机沉默了一句，说：“那是古代的事了QWQ”。</p>
-<h1 id="00开店">00——开店</h1>
-<p>“到了，10元。”Billy2007打开钱包，拿出10绿鸟给司机。</p>
-<h3 id="天哪">天哪！</h3>
-<p>这里和犇酒一起，变成了考古之地！！</p>
-<p>无数的考古学家<s>欢聚一堂</s>考古……</p>
-<p>Billy2007看不下去了，便在店旁开了一家杂货店。</p>
-<p>“咕咕杂货店，保证不咕”！</p>
-<h1 id="01顾客">01——顾客</h1>
-<p><s>（咕咕咕……）</s></p>
-<p>Ps:<code>Lo_Kingdom1</code>，现名<code>GoneTime</code>。</p>
-<p>闹铃声响起，他看了看时间，起来干活。</p>
-<p>不久，一名顾客来了，说：</p>
-<p>“两串烤兔，一串烤蛙，3串绿鸟！”</p>
-<p>他定睛一看，他是谁？</p>
-<p>蓝名，Lo_Kingdom1。</p>
-<p>“两串烤兔，一串烤蛙，3串绿鸟”是上古AK IOI的奇异密码，许多用户用它实行JFCA。</p>
-<p>还好，现在没有了JFCA。</p>
-<p>这时，Billy2007听到一声：“I AK IOI”！</p>
-<h1 id="02疑惑">02——疑惑</h1>
-<p><s>（咕咕咕……）</s></p>
-<p>“15绿鸟！”Lo_Kingdom1讲。</p>
-<p>他刚要付钱，那个“IOI's AKER”被kkksc03的陶片包住，随后——就被封号了。</p>
-<p><strong>Lo_Kingdom1</strong>付钱。</p>
-<p>Billy2007看到Lo_Kingdom1胸前的UID：107432。</p>
-<p>他没说什么，等Lo_Kingdom1走了后，打开电脑，输入107432……</p>
-<p>（因为他是洛谷的~~（伪）管理员~~）,所以……</p>
-<p>“禁言，没被封……”他嘀咕道。</p>
-<p>他碰到了《算法导论》。</p>
-<p>《算法导论》飞了出来……</p>
-<h1 id="03遗迹">03——遗迹</h1>
-<p><s>（咕咕咕……）</s></p>
-<p>Lo_Kingdom1信步走出杂货店，将烤串指向天空。</p>
-<p>《算法导论》与一只妹子飞到了LKD1（Lo_Kingdom1）名字缩写的面前。</p>
-<p>风和日丽。</p>
-<p>“走吧。”LKD1牵起妹子的手，向太阳飞去……</p>
-<p>“到了。”LKD1睁开眼。这里是阿里云总部。</p>
-<p>一行人去哪里？This is a question。</p>
-<p>他们不知道，ltt与cz正看着TA们呢<s>2333</s></p>
-<h1 id="04jfca日记">04——JFCA日记</h1>
-<p><s>（咕咕咕……）</s></p>
-<p>《算法导论》里有一本《JFCA日记》，讲了2333个JC他人的方法。</p>
-<p>Billy2007告诉kkk：注意他的行径，我回去开店了。</p>
-<p>kkk：给我带个烤蛙。</p>
-<p>与此同时，遗迹。</p>
-<p>LKD1将遗迹中的一把剑放入眼中，开车上了巨佬区。</p>
-<h1 id="05犇犇的秘密">05——犇犇的秘密</h1>
-<p>又一句“IAKIOI”，几张陶片。</p>
-<p>随后……犇犇居然意想不到的被封了！！！</p>
-<p>“呵呵”，ltt讲，早该这样了。</p>
-<p>原来，2017年，LG曾说：</p>
-<h2 id="犇犇没了">犇犇没了？</h2>
-<p>虽是假的。</p>
-<p>然后，各种JFCA频发，某巨佬就写了一本《JFCA日记》。</p>
-<p>然后，LG人均3条“IAKIOI”……</p>
-<h1 id="06spfa的问题">06——SPFA的问题</h1>
-<p><s>（咕咕咕……）</s></p>
-<p>Billy2007将烤蛙给kkk，kkk给他看了一张图：</p>
-<figure data-type="image" tabindex="1"><img src="https://p0.ssl.qhimgs4.com/t01afde6260f84baf75.jpg" alt="" loading="lazy"></figure>
-<p>这意味着什么？</p>
-<p>kkk又把一个资料给B7（Billy2007简称）。</p>
-<p>在之前，有一个用户Spfa。</p>
-<p>但是NOI2018之后，他却改名了。</p>
-<p>改名的Oier要么被JFCA过，要么不想被人发现。</p>
-<p>可是，Spfa呢……</p>
-<p>B7不禁陷入了沉思。</p>
-<p>cz给B7一个资料。</p>
-<p>原来，Spfa并未改名，是另一位<strong>奆奆奆奆奆奆奆奆奆奆奆奆奆</strong>佬在文文发了个“Spfa改名”，导致如此。</p>
-<p>那么，为什么要这样？</p>
-<p><s>@Spfa不要D我QAQ</s></p>
-<h1 id="07第一次决斗">07——第一次决斗</h1>
-<p>万万没想到，Spfa对此反应这么大，第二天便要求决斗。</p>
-<p>先是P1——<a href="https://www.luogu.org/problem/P1046">P1046</a>。</p>
-<p>这题太水了，10s后两人都AC了。</p>
-<p>P2：<a href="https://www.luogu.org/problem/P1023">P1023</a>。</p>
-<p>题目刚一亮出，Spfa手上的灯亮了。</p>
-<p>于是，Ta先走了。</p>
-<p>B7与kkk看着Ta的背影，觉得十分奇怪。</p>
-<p>$\qquad\qquad\qquad\qquad\qquad\qquad\qquad? $</p>
-<p>夜已深沉，几人只好先回家。</p>
-<h1 id="08第1条线索">08——第1条线索</h1>
-<p><s>（咕咕咕……）</s></p>
-<p>第二天。</p>
-<p>3人在<strong>洛谷餐厅</strong>里谈天。</p>
-<p>kkk：<s>IAKIOI</s>这个灯，是LKD1的师尊当年交给Ta们的弟子的。</p>
-<p>cz：<s>%%%tql</s>好像也是啊，对了……</p>
-<p>B7：还记得<strong>株洲市南方中学</strong>吗？哪里好像有一个阿里云与JC基地也。</p>
-<p>2人：是也是也！</p>
-<p>kkk：ltt，hh，你俩把<strong>株洲市南方中学</strong>先封IP！</p>
-<p>2h后……</p>
-<p>LKD1来到了<strong>株洲市南方中学</strong>……</p>
-<h1 id="09目前的结尾">09——目前的结尾</h1>
-<p><s>（咕咕咕……）</s></p>
-<p>感谢您的观看。</p>
-<p>第一季现在已经结束了。</p>
-<p>第二季什么时候开始，这还是个迷。</p>
-<p>这个故事是虚构的，@Lo_Kingdom1是我的女朋友。</p>
-<p>本故事只是为了赞颂一下<strong>洛谷</strong>这个OJ与Ta的管理者们。</p>
-<p>第二季预告：</p>
-<pre><code>800年前，这世界上曾经有一军洛谷十字军。
-在犇茶时代，他们服务于洛谷。
-而如今，在JC打压与洛谷的再次更新下，十字军的封印即将被解除，新的故事马上开始……
-</code></pre>
-<h1 id="10洛谷十字军">10——洛谷十字军</h1>
-<p>800年前，这世界上曾经有一军洛谷十字军。</p>
-<p>在犇茶时代，他们服务于洛谷。</p>
-<p>后来，江河流转，洛谷更新，十字军的成员们纷纷离队，将十字军之力划上了封印，密码全在《JFCA日记》中。</p>
-<p>可是……</p>
-<p>《JFCA日记》呢？</p>
-<p>十字军成员全部在长风城中。</p>
-<p>几个月前，长风城被核弹炸毁，十字军便转移到了洛谷之家。</p>
-<p>他们与咕咕杂货店又有什么关系呢？</p>
-<h1 id="11梦之地与灌水">11——梦之地与灌水</h1>
-<p>咕咕杂货店的诞生源于一念之间。</p>
-<p><s>IAKIOI</s>这句话与所有的念想，都来自一个叫<strong>梦之地</strong>的地方。</p>
-<p>那里，一切行为都由<strong>灌水</strong>做成。</p>
-<p>咕咕杂货店当年，与TA取得了密切的联系。</p>
-<p>只因为，B7给了梦之地一个代码：</p>
-<pre><code class="language-cpp">#define fs(i,x,y,z) for(int i=x;i&lt;=y;i+=z)
-int n,m,a[1001][1001];
-void floyd(){
-	fs(i,1,n,1){
-        fs(j,1,n,1){
-            fs(k,1,n,1){
-                if(a[j][k]&gt;a[j][i]+a[i][k]) a[j][k]=a[j][i]+a[i][k];
-            }
-        }
-    }
-}
-//2333
-</code></pre>
-<h1 id="12梦的源头">12——梦的源头</h1>
-<p>现在，距离写小说已经过了大约118d。</p>
-<p>B7百无聊赖地坐在杂货店门口，看着一个一个帖子，一个一个题解飞过。</p>
-<p>JYB发了一个<strong>♀强♂基♀计♂划♀</strong>，让所有谷民愤怒了起来。</p>
-<p>一时间，洛谷世界纷纷扬扬，仿佛所有的努力，所有的梦，都在一瞬间<strong>消 失 殆 尽</strong>。犇犇，都因此关闭，以示默哀。</p>
-<p>此时，梦的源头，那个看似强大的地方，居然，脆弱得不行……</p>
-<p>Ps：以后的篇幅会大大缩小qwq</p>
-<h1 id="13开车事件">13——开车事件</h1>
-<p>有一天晚上，High_Score 巨佬当场开车。/kk</p>
-<p>于是，犇犇顿时分成两派：<strong>JFCA</strong>与<strong>GHS</strong>。</p>
-<p>阿，又是JC？B7想，不太可能qwq</p>
-<h1 id="14谔谔">14——谔谔</h1>
-<p>发明了lysj的B7百无聊赖地看着神帖的增加。</p>
-<p>他忘了他的活和<s>小说</s>，一心谔谔+灌水+学习。</p>
-<p><s>我谔谔</s></p>
+                <p>占坑。</p>
+<p>填坑。</p>
+<h2 id="1-trie是什么">1. Trie是什么</h2>
+<p>Trie树又名字典树，是一种多叉树，常应用于关键词屏蔽等方面。</p>
+<h2 id="2-trie树的构造">2. Trie树的构造</h2>
+<ol>
+<li>
+<p>每个节点都有的：</p>
+<ul>
+<li>一个自然数<code>bih</code>表示自己是几号节点 <s>，但通常可以忽略</s>。</li>
+<li>一个整数/字符<code>id</code>表示自己存的是什么，我习惯用整数存，并且用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>表示啥都没存。</li>
+<li>一个数组<code>con</code>，<code>con[i]</code>表示自己的子节点中有没有ASCII码是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>的节点，如果没有就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，有的话就是那个节点的<code>bih</code>。</li>
+<li>一个<code>bool</code>值<code>end</code>表示是否有单词在这个节点结尾，如在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>{</mo><mn>114</mn><mo separator="true">,</mo><mn>114514</mn><mo>}</mo></mrow><annotation encoding="application/x-tex">\{114,114514\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1</span><span class="mord">1</span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">1</span><span class="mord">4</span><span class="mord">5</span><span class="mord">1</span><span class="mord">4</span><span class="mclose">}</span></span></span></span>中，第一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span>的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi><mi>n</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">end</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault">d</span></span></span></span>就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</li>
+</ul>
+</li>
+<li>
+<p>就根节点有的：</p>
+<ul>
+<li>对于根节点，我们不存<code>con</code>除外的任何信息，只用一种方法表示<code>这是根节点</code>即可。</li>
+<li>通常方法是直接把根节点的<code>bih</code>设成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</li>
+</ul>
+</li>
+<li>
+<p>节点的初始化：</p>
+<ul>
+<li>首先<code>con</code>肯定要全设成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，因为现在还没有字符串，那么自然就不存在节点的链接，所以每一个点的<code>con</code>都全是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</li>
+<li>然后<code>end</code>也要设成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，原因同上。</li>
+<li>接下来<code>id</code>要设成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>，原因同上。</li>
+</ul>
+</li>
+</ol>
+<p>这些节点全部存在<code>a</code>数组里，数组的最大大小<code>N=100001</code>。</p>
+<h2 id="3-节点的统计">3. 节点的统计</h2>
+<p>Problem：给<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个字符串，做一棵Trie树，求Trie树的节点总数。</p>
+<p>Solution：</p>
+<p>对于每一个字符串<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>，输入后循环遍历这个字符串。</p>
+<p>当我们在字符串开头时，我们目前在的节点<code>now=0</code>，<strong>但是我们已经到第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>位了，已经有字符了</strong>，所以我们要看看有没有连接到字符串<strong>这一位</strong>的边。</p>
+<p>如果有的话，那么就跳过去；</p>
+<p>如果没有的话，那么就 <strong><code>ans++</code>，并且新建一个节点</strong>，其中<code>bih=ans</code>，也就是当前<strong>不含根的</strong>节点总数；而<code>id</code>就是当前字符串的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>位。</p>
+<p>接下来，再<strong>从<code>now</code>节点连一条边</strong>到这个<code>bih</code>是<code>ans</code>的节点。</p>
+<p>连边的代码就是<code>a[now].con[k[i]]=ans;</code></p>
+<p><strong>接下来还要跳过去</strong>，也就是<code>now=ans;</code></p>
+<p>接下来到第二位。</p>
+<p>当我们在字符串第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>位时，我们目前在的节点<code>now=ans</code>，<strong>但是我们已经到第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>位了，已经不是第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>位的字符了</strong>，所以我们要看看有没有连接到字符串<strong>这一位</strong>的边。</p>
+<p>如果有的话，那么就跳过去；</p>
+<p>如果没有的话，那么就 <strong><code>ans++</code>，并且新建一个节点</strong>，其中<code>bih=ans</code>，也就是当前<strong>不含根的</strong>节点总数；而<code>id</code>就是当前字符串的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>位。</p>
+<p>接下来，再<strong>从<code>now</code>节点连一条边</strong>到这个<code>bih</code>是<code>ans</code>的节点。</p>
+<p>连边的代码就是<code>a[now].con[k[i]]=ans;</code></p>
+<p><strong>接下来还要跳过去</strong>，也就是<code>now=ans;</code></p>
+<p>然后就这样跳下去，直到最后一位……</p>
+<p>当我们在字符串第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>k</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|k|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">∣</span></span></span></span>位时，我们目前在的节点<code>now=ans</code>，<strong>但是我们已经到第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>k</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|k|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">∣</span></span></span></span>位了，已经不是第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>k</mi><mi mathvariant="normal">∣</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|k|-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>位的字符了</strong>，所以我们要看看有没有连接到字符串<strong>这一位</strong>的边。</p>
+<p>如果有的话，那么就跳过去；</p>
+<p>如果没有的话，那么就 <strong><code>ans++</code>，并且新建一个节点</strong>，其中<code>bih=ans</code>，也就是当前<strong>不含根的</strong>节点总数；而<code>id</code>就是当前字符串的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>k</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|k|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">∣</span></span></span></span>位。</p>
+<p>接下来，再<strong>从<code>now</code>节点连一条边</strong>到这个<code>bih</code>是<code>ans</code>的节点。</p>
+<p>连边的代码就是<code>a[now].con[k[i]]=ans;</code></p>
+<p><strong>接下来还要跳过去</strong>，也就是<code>now=ans;</code></p>
+<p>好了，跳到了。</p>
+<p>但是，这意味着，这个字符串已经走到了行程的终点。</p>
+<p>既然到了终点，那么就得做个标记，也就是<code>a[now].end=1</code>，表示从根节点到<code>now</code>，是一个信息。<s>比如在七号节点上边做一个<code>end</code>标记就可能意味着<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1919810</mn></mrow><annotation encoding="application/x-tex">1919810</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mord">1</span><span class="mord">9</span><span class="mord">8</span><span class="mord">1</span><span class="mord">0</span></span></span></span>是个很臭的数字（bushi</s></p>
+<p>done.</p>
+<p>一个一个字符串读入完， <strong><code>ans+1</code>（包括根节点也要算进去）</strong> 就是最终的答案。</p>
 
               </div>
               <div class="post-footer">
@@ -737,7 +610,7 @@ void floyd(){
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ebeo-yvnjiang.github.io/post/xiao-shuo/" title="小说">小说</a>
+      <a href="https://ebeo-yvnjiang.github.io/post/trie/" title="Trie">Trie</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -746,21 +619,15 @@ void floyd(){
   </ul>
   <div class="tags">
     
-      <a href="https://ebeo-yvnjiang.github.io/tag/xiaoshuo/"># 小说</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="一个神秘的东西" href="https://ebeo-yvnjiang.github.io/post/yi-ge-shen-mi-de-dong-xi/">一个神秘的东西</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="一个神秘的东西" href="https://ebeo-yvnjiang.github.io/post/yi-ge-shen-mi-de-dong-xi/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="CSPJ游记" href="https://ebeo-yvnjiang.github.io/post/cspj-you-ji/">CSPJ游记</a>
-        <a class="nav-mobile-next" title="CSPJ游记" href="https://ebeo-yvnjiang.github.io/post/cspj-you-ji/">下一篇</a>
+        <a class="nav-pc-next" title="尺规作图" href="https://ebeo-yvnjiang.github.io/post/chi-gui-zuo-tu/">尺规作图</a>
+        <a class="nav-mobile-next" title="尺规作图" href="https://ebeo-yvnjiang.github.io/post/chi-gui-zuo-tu/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

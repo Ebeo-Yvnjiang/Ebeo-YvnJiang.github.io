@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-06-15T10:46:27.732Z</updated>
+    <updated>2020-06-20T09:34:23.757Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -10,6 +10,75 @@
     <logo>https://ebeo-yvnjiang.github.io/images/avatar.png</logo>
     <icon>https://ebeo-yvnjiang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Billy2007&amp;GoneTimeの世界</rights>
+    <entry>
+        <title type="html"><![CDATA[Trie]]></title>
+        <id>https://ebeo-yvnjiang.github.io/post/trie/</id>
+        <link href="https://ebeo-yvnjiang.github.io/post/trie/">
+        </link>
+        <updated>2020-06-20T09:34:10.000Z</updated>
+        <content type="html"><![CDATA[<p>占坑。</p>
+<p>填坑。</p>
+<h2 id="1-trie是什么">1. Trie是什么</h2>
+<p>Trie树又名字典树，是一种多叉树，常应用于关键词屏蔽等方面。</p>
+<h2 id="2-trie树的构造">2. Trie树的构造</h2>
+<ol>
+<li>
+<p>每个节点都有的：</p>
+<ul>
+<li>一个自然数<code>bih</code>表示自己是几号节点 <s>，但通常可以忽略</s>。</li>
+<li>一个整数/字符<code>id</code>表示自己存的是什么，我习惯用整数存，并且用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>表示啥都没存。</li>
+<li>一个数组<code>con</code>，<code>con[i]</code>表示自己的子节点中有没有ASCII码是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>的节点，如果没有就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，有的话就是那个节点的<code>bih</code>。</li>
+<li>一个<code>bool</code>值<code>end</code>表示是否有单词在这个节点结尾，如在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>{</mo><mn>114</mn><mo separator="true">,</mo><mn>114514</mn><mo>}</mo></mrow><annotation encoding="application/x-tex">\{114,114514\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1</span><span class="mord">1</span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">1</span><span class="mord">4</span><span class="mord">5</span><span class="mord">1</span><span class="mord">4</span><span class="mclose">}</span></span></span></span>中，第一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span>的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi><mi>n</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">end</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault">d</span></span></span></span>就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</li>
+</ul>
+</li>
+<li>
+<p>就根节点有的：</p>
+<ul>
+<li>对于根节点，我们不存<code>con</code>除外的任何信息，只用一种方法表示<code>这是根节点</code>即可。</li>
+<li>通常方法是直接把根节点的<code>bih</code>设成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</li>
+</ul>
+</li>
+<li>
+<p>节点的初始化：</p>
+<ul>
+<li>首先<code>con</code>肯定要全设成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，因为现在还没有字符串，那么自然就不存在节点的链接，所以每一个点的<code>con</code>都全是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</li>
+<li>然后<code>end</code>也要设成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，原因同上。</li>
+<li>接下来<code>id</code>要设成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>，原因同上。</li>
+</ul>
+</li>
+</ol>
+<p>这些节点全部存在<code>a</code>数组里，数组的最大大小<code>N=100001</code>。</p>
+<h2 id="3-节点的统计">3. 节点的统计</h2>
+<p>Problem：给<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个字符串，做一棵Trie树，求Trie树的节点总数。</p>
+<p>Solution：</p>
+<p>对于每一个字符串<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>，输入后循环遍历这个字符串。</p>
+<p>当我们在字符串开头时，我们目前在的节点<code>now=0</code>，<strong>但是我们已经到第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>位了，已经有字符了</strong>，所以我们要看看有没有连接到字符串<strong>这一位</strong>的边。</p>
+<p>如果有的话，那么就跳过去；</p>
+<p>如果没有的话，那么就 <strong><code>ans++</code>，并且新建一个节点</strong>，其中<code>bih=ans</code>，也就是当前<strong>不含根的</strong>节点总数；而<code>id</code>就是当前字符串的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>位。</p>
+<p>接下来，再<strong>从<code>now</code>节点连一条边</strong>到这个<code>bih</code>是<code>ans</code>的节点。</p>
+<p>连边的代码就是<code>a[now].con[k[i]]=ans;</code></p>
+<p><strong>接下来还要跳过去</strong>，也就是<code>now=ans;</code></p>
+<p>接下来到第二位。</p>
+<p>当我们在字符串第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>位时，我们目前在的节点<code>now=ans</code>，<strong>但是我们已经到第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>位了，已经不是第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>位的字符了</strong>，所以我们要看看有没有连接到字符串<strong>这一位</strong>的边。</p>
+<p>如果有的话，那么就跳过去；</p>
+<p>如果没有的话，那么就 <strong><code>ans++</code>，并且新建一个节点</strong>，其中<code>bih=ans</code>，也就是当前<strong>不含根的</strong>节点总数；而<code>id</code>就是当前字符串的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>位。</p>
+<p>接下来，再<strong>从<code>now</code>节点连一条边</strong>到这个<code>bih</code>是<code>ans</code>的节点。</p>
+<p>连边的代码就是<code>a[now].con[k[i]]=ans;</code></p>
+<p><strong>接下来还要跳过去</strong>，也就是<code>now=ans;</code></p>
+<p>然后就这样跳下去，直到最后一位……</p>
+<p>当我们在字符串第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>k</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|k|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">∣</span></span></span></span>位时，我们目前在的节点<code>now=ans</code>，<strong>但是我们已经到第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>k</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|k|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">∣</span></span></span></span>位了，已经不是第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>k</mi><mi mathvariant="normal">∣</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">|k|-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>位的字符了</strong>，所以我们要看看有没有连接到字符串<strong>这一位</strong>的边。</p>
+<p>如果有的话，那么就跳过去；</p>
+<p>如果没有的话，那么就 <strong><code>ans++</code>，并且新建一个节点</strong>，其中<code>bih=ans</code>，也就是当前<strong>不含根的</strong>节点总数；而<code>id</code>就是当前字符串的第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>k</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|k|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">∣</span></span></span></span>位。</p>
+<p>接下来，再<strong>从<code>now</code>节点连一条边</strong>到这个<code>bih</code>是<code>ans</code>的节点。</p>
+<p>连边的代码就是<code>a[now].con[k[i]]=ans;</code></p>
+<p><strong>接下来还要跳过去</strong>，也就是<code>now=ans;</code></p>
+<p>好了，跳到了。</p>
+<p>但是，这意味着，这个字符串已经走到了行程的终点。</p>
+<p>既然到了终点，那么就得做个标记，也就是<code>a[now].end=1</code>，表示从根节点到<code>now</code>，是一个信息。<s>比如在七号节点上边做一个<code>end</code>标记就可能意味着<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1919810</mn></mrow><annotation encoding="application/x-tex">1919810</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mord">1</span><span class="mord">9</span><span class="mord">8</span><span class="mord">1</span><span class="mord">0</span></span></span></span>是个很臭的数字（bushi</s></p>
+<p>done.</p>
+<p>一个一个字符串读入完， <strong><code>ans+1</code>（包括根节点也要算进去）</strong> 就是最终的答案。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[尺规作图]]></title>
         <id>https://ebeo-yvnjiang.github.io/post/chi-gui-zuo-tu/</id>
@@ -819,36 +888,6 @@ int main(){
 	return 0;
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[常用化学元素的对应关系]]></title>
-        <id>https://ebeo-yvnjiang.github.io/post/chang-yong-hua-xue-yuan-su-de-dui-ying-guan-xi/</id>
-        <link href="https://ebeo-yvnjiang.github.io/post/chang-yong-hua-xue-yuan-su-de-dui-ying-guan-xi/">
-        </link>
-        <updated>2020-04-29T12:45:27.000Z</updated>
-        <content type="html"><![CDATA[<p>建议<code>Ctrl+F</code>查找。</p>
-<hr>
-<p>氧<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi></mrow><annotation encoding="application/x-tex">O</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span></span></span></span><br>
-氢<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span></span></span></span><br>
-铁<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Fe</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault">e</span></span></span></span><br>
-氦<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">He</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord mathdefault">e</span></span></span></span><br>
-铜<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">Cu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">u</span></span></span></span></p>
-<p>碳<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span><br>
-钠<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">Na</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault">a</span></span></span></span><br>
-氯<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">Cl</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span><br>
-锂<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">Li</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault">i</span></span></span></span><br>
-钙<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">Ca</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">a</span></span></span></span></p>
-<p>金<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">Au</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">u</span></span></span></span><br>
-银<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">Ag</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span><br>
-铍<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Be</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">e</span></span></span></span><br>
-硼<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span><br>
-硫<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span></p>
-<p>钾<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span><br>
-磷<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span><br>
-镁<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">Mg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span><br>
-锰<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">Mn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">n</span></span></span></span><br>
-锌<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Z</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">Zn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="mord mathdefault">n</span></span></span></span></p>
 ]]></content>
     </entry>
 </feed>
