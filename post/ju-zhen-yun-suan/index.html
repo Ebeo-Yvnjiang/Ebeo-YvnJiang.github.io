@@ -8,7 +8,7 @@
 <meta name="description" content="萧索，飘摇。">
 <meta name="theme-color" content="#b197fc">
 <title>矩阵运算 | Billy2007&amp;GoneTimeの世界</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1593259849233">
+<link rel="shortcut icon" href="/favicon.ico?v=1593691703511">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -530,12 +530,12 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>11分钟</span>
+      <span>12分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1941<span class="pc-show">字数</span></span>
+      <span>1970<span class="pc-show">字数</span></span>
     </span>
     
       
@@ -602,7 +602,13 @@ window.addEventListener('load', function() {
 #define ms(a,b) memset(a,b,sizeof(a))
 #define sz(a) sizeof(a)
 using namespace std;
-const int N=151,inf=0x7f7f7f7f,moda=1000000007;//2个最大值是360，推荐值351 
+const int N=151,inf=0x7f7f7f7f,moda=1000000007;//2个最大值是360，推荐值351
+inline int read(){
+	int date=0,w=1;char c=0;
+	while(c&lt;'0'||c&gt;'9'){if(c=='-')w=-1;c=getchar();}
+	while(c&gt;='0'&amp;&amp;c&lt;='9'){date=date*10+c-'0';c=getchar();}
+	return date*w;
+} 
 struct kucan{
 	ll p,q,dlt[N][N];//p*q
 	kucan(){
@@ -682,10 +688,9 @@ struct kucan{
 	void out(){
 		fs(i,1,p,1){
 			fs(j,1,q,1){
-				cout&lt;&lt;dlt[i][j];
-				cout&lt;&lt;' ';
+				printf(&quot;%lld &quot;,dlt[i][j]);
 			}
-			cout&lt;&lt;endl;
+			puts(&quot;&quot;);
 		}
 	}
 	void in(int x,int y){
@@ -693,7 +698,7 @@ struct kucan{
 		q=y;
 		fs(i,1,p,1){
 			fs(j,1,q,1){
-				cin&gt;&gt;dlt[i][j];
+				dlt[i][j]=read();
 			}
 		}
 	}
@@ -710,12 +715,8 @@ kucan ksm(kucan a,ll b){
     return ans;
 }
 int main(){
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
 	return 0;
 }
-
 </code></pre>
 
               </div>
