@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="萧索，飘摇。">
 <meta name="theme-color" content="#b197fc">
-<title>KMP算法 | Billy2007&amp;GoneTimeの世界</title>
+<title>浅谈标准nim游戏 | Billy2007&amp;GoneTimeの世界</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1595082725219">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,7 +27,7 @@
 
 
 
-    <meta name="description" content="KMP算法" />
+    <meta name="description" content="浅谈标准nim游戏" />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -316,8 +316,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/kmp-suan-fa/">
-      KMP算法
+    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/qian-tan-biao-zhun-nim-you-xi/">
+      浅谈标准nim游戏
     </a>
   </h1>
   <div class="post-meta">
@@ -325,82 +325,74 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-06-27</span>
+      <span>2020-07-18</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>500<span class="pc-show">字数</span></span>
+      <span>314<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>懒得讲了，直接背吧（</p>
-<p>用途：求字符串<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>是否在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>中出现过。</p>
-<p>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi mathvariant="normal">∣</mi><mi>s</mi><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">∣</mi><mi>p</mi><mi mathvariant="normal">∣</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(|s|+|p|)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">∣</span><span class="mord mathdefault">s</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault">p</span><span class="mord">∣</span><span class="mclose">)</span></span></span></span>。</p>
-<p>Ps：我们这里字符串下标从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>开始计数。</p>
-<p>大致思路：</p>
-<p>如果是BF算法，那么失配了就算了（</p>
-<p>但是如果是KMP算法的话，那么失配了就要跳到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{j-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>上（代码称为<code>fail</code>）。</p>
-<p>如果发现一个字符失配了，那么我们就要把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>移到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>中与失配字符相同的那一位，比如<code>114514</code>和<code>1919810</code>就要移到将<code>114514</code>的第一个<code>1</code>和<code>1919810</code>的第二个<code>1</code>重合。</p>
-<p>而这个怎么移呢？答案就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>数组！</p>
-<p>那么<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>数组怎么求呢？很简单，我们直接定义<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是在<strong>第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>位以前的离<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>最近的并且和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>相同的字符的位置</strong>。</p>
-<p>具体证明略（</p>
-<p>然后就放个代码吧qwq</p>
-<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
-#define ns &quot;-1&quot;
-#define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)
-#define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)
-#define ll long long
-#define ull unsigned long long
-#define db double
-#define ms(a,b) memset(a,b,sizeof(a))
-#define sz(a) sizeof(a)
-using namespace std;
-const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};
-const int N=1000001,inf=0x3f3f3f3f;
-inline int read(){
-	int date=0,w=1;char c=0;
-	while(c&lt;'0'||c&gt;'9'){if(c=='-')w=-1;c=getchar();}
-	while(c&gt;='0'&amp;&amp;c&lt;='9'){date=date*10+c-'0';c=getchar();}
-	return date*w;
-}
-string s,p;
-int m,n,sa,fail[N];
-int main(){
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
-	cin&gt;&gt;s&gt;&gt;p;m=s.size(),n=p.size();
-	int j=0;
-	fs(i,1,n-1,1){
-		while(j&gt;0&amp;&amp;p[i]!=p[j]) j=fail[j-1];
-		if(p[i]==p[j]) j++;
-		fail[i]=j;	
-	}
-	j=0;
-	fs(i,0,m-1,1){
-		while(j&gt;0&amp;&amp;s[i]!=p[j]) j=fail[j-1];
-		if(s[i]==p[j]) j++;
-		if(j==n){
-			cout&lt;&lt;i-n+2&lt;&lt;'\n';
-			//j=fail[j];
-			j=fail[j-1];
-		}	
-	}
-	fs(i,0,n-1,1) cout&lt;&lt;fail[i]&lt;&lt;' ';
-	return 0;
-}
-
-</code></pre>
-<p>Ps：这是洛谷模板的代码。</p>
+                <ol>
+<li>
+<p>啥是nim游戏？</p>
+<p>有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>堆石子，每堆有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>个石子。</p>
+<p>每人每次可以在一堆石子中取一些石子扔掉，，可以取完，不能不取。每次只能从一堆里取。</p>
+<p>最后没石子可取的人就输了。假如甲是先手，且告诉你这<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>堆石子的数量，他想知道是否存在先手必胜的策略。</p>
+<p>这个策略就是nim游戏。</p>
+</li>
+<li>
+<p>nim游戏怎么做到先手必败？</p>
+</li>
+</ol>
+<p>若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>⊕</mo><msub><mi>a</mi><mn>2</mn></msub><mo>⊕</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a_1\oplus a_2\oplus ...a_n=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，那么甲输。</p>
+<p>否则乙输。</p>
+<ol start="3">
+<li>
+<p>代码？（多组数据）</p>
+<p>时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>t</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(tn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<pre><code class="language-cpp"></code></pre>
+</li>
+</ol>
+<p>#include&lt;bits/stdc++.h&gt;<br>
+#define ns &quot;-1&quot;<br>
+#define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)<br>
+#define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)<br>
+#define ll long long<br>
+#define ull unsigned long long<br>
+#define db double<br>
+#define ms(a,b) memset(a,b,sizeof(a))<br>
+#define sz(a) sizeof(a)<br>
+using namespace std;<br>
+const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};<br>
+const int N=100001,inf=0x7f7f7f7f;<br>
+int n,a,m,jk;<br>
+int main(){<br>
+ios::sync_with_stdio(false);<br>
+cin.tie(0);<br>
+cout.tie(0);<br>
+cin&gt;&gt;n;<br>
+fs(i,1,n,1){<br>
+cin&gt;&gt;m;jk=0;<br>
+fs(i,1,m,1){<br>
+cin&gt;&gt;a;<br>
+jk^=a;<br>
+}<br>
+if(jk==0) cout&lt;&lt;&quot;No\n&quot;;<br>
+else cout&lt;&lt;&quot;Yes\n&quot;;<br>
+}<br>
+return 0;<br>
+}</p>
+<pre><code></code></pre>
 
               </div>
               <div class="post-footer">
@@ -411,7 +403,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ebeo-yvnjiang.github.io/post/kmp-suan-fa/" title="KMP算法">KMP算法</a>
+      <a href="https://ebeo-yvnjiang.github.io/post/qian-tan-biao-zhun-nim-you-xi/" title="浅谈标准nim游戏">浅谈标准nim游戏</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -424,15 +416,11 @@ int main(){
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="浅谈标准nim游戏" href="https://ebeo-yvnjiang.github.io/post/qian-tan-biao-zhun-nim-you-xi/">浅谈标准nim游戏</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="浅谈标准nim游戏" href="https://ebeo-yvnjiang.github.io/post/qian-tan-biao-zhun-nim-you-xi/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Trie" href="https://ebeo-yvnjiang.github.io/post/trie/">Trie</a>
-        <a class="nav-mobile-next" title="Trie" href="https://ebeo-yvnjiang.github.io/post/trie/">下一篇</a>
+        <a class="nav-pc-next" title="KMP算法" href="https://ebeo-yvnjiang.github.io/post/kmp-suan-fa/">KMP算法</a>
+        <a class="nav-mobile-next" title="KMP算法" href="https://ebeo-yvnjiang.github.io/post/kmp-suan-fa/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
