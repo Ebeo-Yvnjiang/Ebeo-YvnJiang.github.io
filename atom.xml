@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-07-18T14:32:12.339Z</updated>
+    <updated>2020-07-18T14:41:53.230Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -11,14 +11,15 @@
     <icon>https://ebeo-yvnjiang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Billy2007&amp;GoneTimeの世界</rights>
     <entry>
-        <title type="html"><![CDATA[浅谈标准nim游戏]]></title>
+        <title type="html"><![CDATA[浅谈两种nim游戏]]></title>
         <id>https://ebeo-yvnjiang.github.io/post/qian-tan-biao-zhun-nim-you-xi/</id>
         <link href="https://ebeo-yvnjiang.github.io/post/qian-tan-biao-zhun-nim-you-xi/">
         </link>
         <updated>2020-07-18T14:24:25.000Z</updated>
         <content type="html"><![CDATA[<ol>
 <li>
-<p>啥是nim游戏？</p>
+<p>啥是标准nim游戏？</p>
+<p><strong>题目来源洛谷</strong></p>
 <p>有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>堆石子，每堆有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>个石子。</p>
 <p>每人每次可以在一堆石子中取一些石子扔掉，，可以取完，不能不取。每次只能从一堆里取。</p>
 <p>最后没石子可取的人就输了。假如甲是先手，且告诉你这<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>堆石子的数量，他想知道是否存在先手必胜的策略。</p>
@@ -66,7 +67,44 @@ else cout&lt;&lt;&quot;Yes\n&quot;;<br>
 }<br>
 return 0;<br>
 }</p>
-<pre><code></code></pre>
+<pre><code>
+4. 第一种扩展nim游戏
+
+**来源AcWing**
+
+现在，有一个$n$级台阶的楼梯，每级台阶上都有若干个石子，其中第i级台阶上有$a_i$个石子($i\ge 1$)。
+
+两位玩家轮流操作，每次操作可以从任意一级台阶上拿若干个石子放到下一级台阶中（不能不拿）。
+
+已经拿到地面上的石子不能再拿，最后无法进行操作的人视为失败。
+
+问如果两人都采用最优策略，先手是否必胜。
+
+5. 第一种扩展题解
+
+如果如果先手时奇数台阶上的值的异或值为$0$，则先手必败，反之必胜。
+
+也就是说，若$n$是奇数，那么若$a_1\oplus a_3\oplus ...a_n=0$，那么甲输。
+
+否则若$a_1\oplus a_3\oplus ...a_{n-1}=0$，那么甲输。
+
+6. 代码
+
+```cpp
+#include &lt;iostream&gt;
+using namespace std;
+int res,a,n;
+int main(){
+ cin&gt;&gt;n;
+ for(int i=1;i&lt;=n;i++){
+     cin&gt;&gt;a;
+     if(i&amp;1) res^=a;
+ }
+ if(!res) puts(&quot;No&quot;);
+ else puts(&quot;Yes&quot;);
+ return 0;
+}//AcWing上有时间限制提交，所以代码比较丑
+</code></pre>
 ]]></content>
     </entry>
     <entry>
