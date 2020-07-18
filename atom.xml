@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-07-18T14:41:53.230Z</updated>
+    <updated>2020-07-18T14:51:34.348Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -35,76 +35,72 @@
 <li>
 <p>代码？（多组数据）</p>
 <p>时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>t</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(tn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
-<pre><code class="language-cpp"></code></pre>
+<pre><code class="language-cpp"> #include&lt;bits/stdc++.h&gt;
+ #define ns &quot;-1&quot;
+ #define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)
+ #define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)
+ #define ll long long
+ #define ull unsigned long long
+ #define db double
+ #define ms(a,b) memset(a,b,sizeof(a))
+ #define sz(a) sizeof(a)
+ using namespace std;
+ const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};
+ const int N=100001,inf=0x7f7f7f7f;
+ int n,a,m,jk;
+ int main(){
+     ios::sync_with_stdio(false);
+     cin.tie(0);
+     cout.tie(0);
+     cin&gt;&gt;n;
+     fs(i,1,n,1){
+         cin&gt;&gt;m;jk=0;
+         fs(i,1,m,1){
+             cin&gt;&gt;a;
+             jk^=a;
+         }
+         if(jk==0) cout&lt;&lt;&quot;No\n&quot;;
+         else cout&lt;&lt;&quot;Yes\n&quot;;
+     }
+     return 0;
+ }
+
+</code></pre>
+</li>
+<li>
+<p>第一种扩展nim游戏</p>
 </li>
 </ol>
-<p>#include&lt;bits/stdc++.h&gt;<br>
-#define ns &quot;-1&quot;<br>
-#define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)<br>
-#define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)<br>
-#define ll long long<br>
-#define ull unsigned long long<br>
-#define db double<br>
-#define ms(a,b) memset(a,b,sizeof(a))<br>
-#define sz(a) sizeof(a)<br>
-using namespace std;<br>
-const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};<br>
-const int N=100001,inf=0x7f7f7f7f;<br>
-int n,a,m,jk;<br>
-int main(){<br>
-ios::sync_with_stdio(false);<br>
-cin.tie(0);<br>
-cout.tie(0);<br>
-cin&gt;&gt;n;<br>
-fs(i,1,n,1){<br>
-cin&gt;&gt;m;jk=0;<br>
-fs(i,1,m,1){<br>
-cin&gt;&gt;a;<br>
-jk^=a;<br>
-}<br>
-if(jk==0) cout&lt;&lt;&quot;No\n&quot;;<br>
-else cout&lt;&lt;&quot;Yes\n&quot;;<br>
-}<br>
-return 0;<br>
-}</p>
-<pre><code>
-4. 第一种扩展nim游戏
-
-**来源AcWing**
-
-现在，有一个$n$级台阶的楼梯，每级台阶上都有若干个石子，其中第i级台阶上有$a_i$个石子($i\ge 1$)。
-
-两位玩家轮流操作，每次操作可以从任意一级台阶上拿若干个石子放到下一级台阶中（不能不拿）。
-
-已经拿到地面上的石子不能再拿，最后无法进行操作的人视为失败。
-
-问如果两人都采用最优策略，先手是否必胜。
-
-5. 第一种扩展题解
-
-如果如果先手时奇数台阶上的值的异或值为$0$，则先手必败，反之必胜。
-
-也就是说，若$n$是奇数，那么若$a_1\oplus a_3\oplus ...a_n=0$，那么甲输。
-
-否则若$a_1\oplus a_3\oplus ...a_{n-1}=0$，那么甲输。
-
-6. 代码
-
-```cpp
-#include &lt;iostream&gt;
-using namespace std;
-int res,a,n;
-int main(){
- cin&gt;&gt;n;
- for(int i=1;i&lt;=n;i++){
-     cin&gt;&gt;a;
-     if(i&amp;1) res^=a;
- }
- if(!res) puts(&quot;No&quot;);
- else puts(&quot;Yes&quot;);
- return 0;
-}//AcWing上有时间限制提交，所以代码比较丑
+<p><strong>来源AcWing</strong></p>
+<p>现在，有一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>级台阶的楼梯，每级台阶上都有若干个石子，其中第i级台阶上有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>个石子(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i\ge 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.79549em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>)。</p>
+<p>两位玩家轮流操作，每次操作可以从任意一级台阶上拿若干个石子放到下一级台阶中（不能不拿）。</p>
+<p>已经拿到地面上的石子不能再拿，最后无法进行操作的人视为失败。</p>
+<p>问如果两人都采用最优策略，先手是否必胜。</p>
+<ol start="5">
+<li>第一种扩展题解</li>
+</ol>
+<p>如果如果先手时奇数台阶上的值的异或值为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，则先手必败，反之必胜。</p>
+<p>也就是说，若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>是奇数，那么若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>⊕</mo><msub><mi>a</mi><mn>3</mn></msub><mo>⊕</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a_1\oplus a_3\oplus ...a_n=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，那么甲输。</p>
+<p>否则若<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>⊕</mo><msub><mi>a</mi><mn>3</mn></msub><mo>⊕</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a_1\oplus a_3\oplus ...a_{n-1}=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，那么甲输。</p>
+<ol start="6">
+<li>
+<p>代码</p>
+<pre><code class="language-cpp"> #include &lt;iostream&gt;
+ using namespace std;
+ int res,a,n;
+ int main(){
+     cin&gt;&gt;n;
+     for(int i=1;i&lt;=n;i++){
+         cin&gt;&gt;a;
+         if(i&amp;1) res^=a;
+     }
+     if(!res) puts(&quot;No&quot;);
+     else puts(&quot;Yes&quot;);
+     return 0;
+ }//AcWing上有时间限制提交，所以代码比较丑
 </code></pre>
+</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
