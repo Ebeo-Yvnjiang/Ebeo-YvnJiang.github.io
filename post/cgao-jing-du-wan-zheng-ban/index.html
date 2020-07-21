@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="萧索，飘摇。">
 <meta name="theme-color" content="#b197fc">
-<title>Kruskal | Billy2007&amp;GoneTimeの世界</title>
+<title>C++高精度完整版 | Billy2007&amp;GoneTimeの世界</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1595306432712">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,7 +27,7 @@
 
 
 
-    <meta name="description" content="Kruskal" />
+    <meta name="description" content="C++高精度完整版" />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -316,8 +316,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/kruskal/">
-      Kruskal
+    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/cgao-jing-du-wan-zheng-ban/">
+      C++高精度完整版
     </a>
   </h1>
   <div class="post-meta">
@@ -325,18 +325,18 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-04-17</span>
+      <span>2020-07-21</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
+      <span>8分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>360<span class="pc-show">字数</span></span>
+      <span>1250<span class="pc-show">字数</span></span>
     </span>
     
   </div>
@@ -353,70 +353,275 @@
 #define sz(a) sizeof(a)
 using namespace std;
 const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};
-const int N=1000001,inf=0x7f7f7f7f;
-struct bian{
-	int u,v,w;
-}a[N];
-inline int read(){
-	int date=0,w=1;char c=0;
-	while(c&lt;'0'||c&gt;'9'){if(c=='-')w=-1;c=getchar();}
-	while(c&gt;='0'&amp;&amp;c&lt;='9'){date=date*10+c-'0';c=getchar();}
-	return date*w;
+const int N=10001,inf=0x3f3f3f3f;
+struct number{
+	int len,num[N];
+	bool isfu;
+	number &amp; operator = (const char*);
+	number &amp; operator = (int);
+	number();
+	number(int);
+	bool operator &gt; (const number &amp;) const;
+	bool operator &lt; (const number &amp;) const;
+	bool operator &gt;= (const number &amp;) const;
+	bool operator &lt;= (const number &amp;) const;
+	bool operator != (const number &amp;) const;
+	bool operator == (const number &amp;) const;
+	number operator + (const number &amp;) const;
+	number operator - (const number &amp;) const;
+	number operator * (const number &amp;) const;
+	number operator / (const number &amp;) const;
+	number operator % (const number &amp;) const;
+	number operator += (const number &amp;);
+	number operator -= (const number &amp;);
+	number operator *= (const number &amp;);
+	number operator /= ( number &amp;);
+	number operator %= ( number &amp;);
+	number operator ++ ();
+	number operator -- ();
+};
+void deletezero(number &amp;p){
+	while(p.num[p.len]==0&amp;&amp;p.len&gt;1) p.len--;
+	if(p.len==1&amp;&amp;p.num[1]==0&amp;&amp;p.isfu) p.isfu=0;
 }
-bool cmp(bian a,bian b){
-	return a.w&lt;b.w;
+number abs(number p){
+	number k=p;
+	k.isfu=0;
+	return k;	
 }
-int n,m,fa[N],ans;
-int find(int x){
-	if(fa[x]==x) return x;
-	return fa[x]=find(fa[x]);
-}
-void merge(int u,int v){
-	u=find(u);
-	v=find(v);
-	fa[max(u,v)]=min(u,v);
-}
-int finding=1,now=1;
-void kruskal(){
-	while(finding&lt;=n-1){
-		bool ak=0;
-		while(!ak){
-			if(find(a[now].u)!=find(a[now].v)){
-				merge(a[now].u,a[now].v);
-				ak=1;
-				ans+=a[now].w;
-				finding++;
-			}
-			now++;
-			if(now&gt;m&amp;&amp;!ak){
-				return;
-			}
+number &amp; number::operator = (const char* c){
+	ms(num,0);
+	int n=strlen(c),j=1,k=1;
+	if(c[0]=='-'){
+		isfu=1;
+		fs(i,2,n,1){
+			if(k&gt;=10000){
+				j++;
+				k=1;
+			} 
+			num[j]+=k*(c[n-i+1]-'0');
+			k*=10;
 		}
-		//cout&lt;&lt;&quot;OK\n&quot;;
+		len=j;
+		deletezero(*this);
+		return *this;
 	}
+	fs(i,1,n,1){
+		if(k&gt;=10000){
+			j++;
+			k=1;
+		} 
+		num[j]+=k*(c[n-i]-'0');
+		k*=10;
+	}
+	len=j;
+	deletezero(*this);
+	return *this;
 }
+number &amp; number::operator = (int p){
+	char s[N];
+	sprintf(s,&quot;%d&quot;,p);
+	return *this=s;
+}
+number::number(){
+	ms(num,0);
+	len=1;
+	isfu=0;
+}
+number::number(int p){
+	*this=p;
+}
+bool number::operator &gt; (const number &amp;b) const{
+	if(isfu&amp;&amp;b.isfu==0) return 0;
+	if(isfu==0&amp;&amp;b.isfu) return 1;
+	bool w=!isfu;
+	if(len!=b.len) return (len&gt;b.len)*w;
+	ft(i,len,1,-1){
+		if(num[i]!=b.num[i]) return (num[i]&gt;b.num[i])*w;
+	}
+	return 0;
+}
+bool number::operator &lt; (const number &amp;b) const{
+	return b&gt;*this;
+}
+bool number::operator &lt;= (const number &amp;b) const{
+	return !(*this&gt;b);
+}
+bool number::operator &gt;= (const number &amp;b) const{
+	return !(b&gt;*this);
+}
+bool number::operator != (const number &amp;b) const{
+	return (b&gt;*this)||(*this&gt;b);
+}
+bool number::operator == (const number &amp;b) const{
+	return !(*this&gt;b)&amp;&amp;!(b&gt;*this);
+}
+ostream &amp; operator &lt;&lt; (ostream &amp;o,number p){
+	if(p.isfu) o&lt;&lt;'-';
+	o&lt;&lt;p.num[p.len];
+	ft(i,p.len-1,1,-1){
+		o.width(4);
+		o.fill('0');
+		o&lt;&lt;p.num[i];
+	}
+	return o;
+}
+istream &amp; operator &gt;&gt; (istream &amp;x,number &amp;p){
+	char s[N];
+	x&gt;&gt;s;
+	p=s;
+	return x;
+}
+number number::operator + (const number &amp;b) const{
+	number c,a=*this;
+	if(isfu&amp;&amp;b.isfu==0){
+		//if(b&lt;abs(a)){
+			number k=abs(a);
+			if(b&gt;=k) c=b-k;
+			else c=k-b;
+			if(b&lt;abs(a)) c.isfu=1;
+			deletezero(c);
+			return c;
+		//}
+	}else if(isfu==0&amp;&amp;b.isfu){
+		//if(a&lt;abs(b)){
+			number k=abs(b);
+			if(a&gt;=k) c=a-k;
+			else c=k-a;
+			if(a&lt;abs(b)) c.isfu=1;
+			deletezero(c);
+			return c;
+		//}
+	}
+	c.len=max(len,b.len);
+	fs(i,1,c.len,1){
+		c.num[i]+=num[i]+b.num[i];
+		if(c.num[i]&gt;=10000){
+			c.num[i]-=10000;
+			c.num[i+1]++;
+		}
+	}
+	if(c.num[c.len+1]&gt;0) c.len++;
+	deletezero(c);
+	c.isfu=isfu;
+	return c;
+}
+number number::operator - (const number &amp;b) const{
+	number c,a=*this;
+	if(isfu==0&amp;&amp;b.isfu==0&amp;&amp;a&lt;b){
+		c=b-a;
+		c.isfu=1;
+		return c;
+	}else if(isfu&amp;&amp;b.isfu==0){
+		number k=abs(a);
+		c=k+b;
+		c.isfu=1;
+		return c;
+	}else if(isfu==0&amp;&amp;b.isfu){
+		return a+abs(b);
+	}else if(isfu&amp;&amp;b.isfu){
+		c=abs(b)-abs(a);
+		//c.isfu=1;
+		return c;
+	}
+	c.len=len;
+	fs(i,1,c.len,1){
+		c.num[i]+=num[i]-b.num[i];
+		if(c.num[i]&lt;0){
+			c.num[i]+=10000;
+			c.num[i+1]--;
+		}
+	}
+	deletezero(c);
+	return c;
+}
+number number::operator += (const number &amp;b) {
+	return *this=*this+b;
+}
+number number::operator -= (const number &amp;b) {
+	return *this=*this-b;
+}
+number number::operator ++ () {
+	return *this=*this+1;
+}
+number number::operator -- () {
+	return *this=*this-1;
+}
+number number::operator * (const number &amp;b) const{
+	number c;
+	if((isfu&amp;&amp;b.isfu==0)||(isfu==0&amp;&amp;b.isfu)) c.isfu=1;
+	else c.isfu=0;
+	c.len=len+b.len+1;
+	fs(i,1,len,1){
+		fs(j,1,b.len,1){
+			c.num[i+j-1]+=num[i]*b.num[j];
+			c.num[i+j]+=c.num[i+j-1]/10000;
+			c.num[i+j-1]%=10000;
+		}
+		
+	}
+	deletezero(c);
+	return c;
+}
+number number::operator *= (const number &amp;b) {
+	return *this=(*this)*b;
+}
+number number::operator / (const number &amp;b) const{
+	number c,d;
+	if((isfu&amp;&amp;b.isfu==0)||(isfu==0&amp;&amp;b.isfu)) c.isfu=1;
+	else c.isfu=0;
+	c.len=len+b.len+1;d.len=0;
+	ft(i,len,1,-1){
+		memmove(d.num+2,d.num+1,sz(d.num)-sz(int)*2);
+		d.len++;
+		d.num[1]=num[i];
+     int l=0,r=9999,m;
+		while(l&lt;r){
+			m=(l+r)/2;
+			if((b*number(m))&lt;=d) l=m+1;
+			else r=m;
+		}
+     c.num[i]=r-1;
+     d=d-b*number(r-1);
+	}
+	deletezero(c);
+	return c;
+}
+number number::operator /= ( number &amp;b) {
+	return *this=(*this)/b;
+}
+number number::operator % (const number &amp;b) const{
+	if(*this&lt;b) return *this;
+	number c,d;if((isfu&amp;&amp;b.isfu==0)||(isfu==0&amp;&amp;b.isfu)) c.isfu=1;
+	else c.isfu=0;
+	d.isfu=isfu;
+	c.len=len+b.len+1;d.len=0;
+	ft(i,len,1,-1){
+		memmove(d.num+2,d.num+1,sz(d.num)-sz(int)*2);
+		d.len++;
+		d.num[1]=num[i];
+		int l=0,r=9999,m;
+		while(l&lt;r){
+			m=(l+r)/2;
+			if((b*number(m))&lt;=d) l=m+1;
+			else r=m;
+		}
+     c.num[i]=r-1;
+     d=d-b*number(r-1);
+     }
+	deletezero(c);
+	return d;
+}
+number number::operator %= ( number &amp;b) {
+	return *this=(*this)%b;
+}
+number a,b;
 int main(){
-	//freopen(&quot;p3366_2.in&quot;,&quot;r&quot;,stdin);
-	//freopen(&quot;qwq.txt&quot;,&quot;w&quot;,stdout);
-	n=read(),m=read();
-	if(m&lt;n-1){
-		printf(&quot;orz&quot;);
-		return 0;
-	}
-	fs(i,1,n,1) fa[i]=i;
-	fs(i,1,m,1){
-		a[i].u=read();
-		a[i].v=read();
-		a[i].w=read();
-		//printf(&quot;OK%d\n&quot;,i);
-	}
-	//printf(&quot;OKK\n&quot;);
-	//system(&quot;pause&quot;);
-	sort(a+1,a+m+1,cmp);
-	//printf(&quot;OK\n&quot;);
-	kruskal();
-	if(finding==n) printf(&quot;%d&quot;,ans);
-	else printf(&quot;orz&quot;);
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+	cin&gt;&gt;a&gt;&gt;b;
+	cout&lt;&lt;a+b&lt;&lt;'\n'&lt;&lt;a-b&lt;&lt;'\n'&lt;&lt;a*b&lt;&lt;'\n'&lt;&lt;a/b&lt;&lt;'\n'&lt;&lt;a%b;
 	return 0;
 }
 </code></pre>
@@ -430,7 +635,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ebeo-yvnjiang.github.io/post/kruskal/" title="Kruskal">Kruskal</a>
+      <a href="https://ebeo-yvnjiang.github.io/post/cgao-jing-du-wan-zheng-ban/" title="C++高精度完整版">C++高精度完整版</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -443,15 +648,11 @@ int main(){
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="哈夫曼树" href="https://ebeo-yvnjiang.github.io/post/ha-fu-man-shu/">哈夫曼树</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="哈夫曼树" href="https://ebeo-yvnjiang.github.io/post/ha-fu-man-shu/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="qwq" href="https://ebeo-yvnjiang.github.io/post/qwq/">qwq</a>
-        <a class="nav-mobile-next" title="qwq" href="https://ebeo-yvnjiang.github.io/post/qwq/">下一篇</a>
+        <a class="nav-pc-next" title="欧拉路径&amp;哈密尔顿路径" href="https://ebeo-yvnjiang.github.io/post/ou-la-lu-jing-andha-mi-er-dun-lu-jing/">欧拉路径&amp;哈密尔顿路径</a>
+        <a class="nav-mobile-next" title="欧拉路径&amp;哈密尔顿路径" href="https://ebeo-yvnjiang.github.io/post/ou-la-lu-jing-andha-mi-er-dun-lu-jing/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
