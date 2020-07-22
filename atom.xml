@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-07-21T04:40:37.897Z</updated>
+    <updated>2020-07-22T12:55:09.588Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -652,6 +652,98 @@ int main(){
 <p>既然到了终点，那么就得做个标记，也就是<code>a[now].end=1</code>，表示从根节点到<code>now</code>，是一个信息。<s>比如在七号节点上边做一个<code>end</code>标记就可能意味着<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1919810</mn></mrow><annotation encoding="application/x-tex">1919810</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mord">1</span><span class="mord">9</span><span class="mord">8</span><span class="mord">1</span><span class="mord">0</span></span></span></span>是个很臭的数字（bushi</s></p>
 <p>done.</p>
 <p>一个一个字符串读入完， <strong><code>ans+1</code>（包括根节点也要算进去）</strong> 就是最终的答案。</p>
+<p>附：洛谷P2580代码</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ns &quot;-1&quot;
+#define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)
+#define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)
+#define ll long long
+#define ull unsigned long long
+#define db double
+#define ms(a,b) memset(a,b,sizeof(a))
+#define sz(a) sizeof(a)
+using namespace std;
+const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};
+const int N=10001,inf=0x3f3f3f3f;
+const int daynum[]={114514,31,28,31,30,31,30,31,31,30,31,30,31};
+const db E=2.718281828459,pi=acos(-1.0),eps=0.0000000001;
+inline int read(){
+	int date=0,w=1;char c=0;
+	while(c&lt;'0'||c&gt;'9'){if(c=='-')w=-1;c=getchar();}
+	while(c&gt;='0'&amp;&amp;c&lt;='9'){date=date*10+c-'0';c=getchar();}
+	return date*w;
+}
+struct point{
+	int end;
+	int id,con[27];
+	point(){
+		id=-1;
+		ms(con,0);
+		end=0;
+	}
+}a[N*51];
+char z[N][51],k[51],q[51];
+int m,w,ans=1,pp;
+void dfs(int now){
+	fs(i,60,127,1) if(a[now].con[i]){
+		printf(&quot;%d-&gt;(%c&quot;,now,i);
+		printf(&quot; %d)\n&quot;,a[now].con[i]);
+		system(&quot;pause&quot;);
+		dfs(a[now].con[i]);
+	}
+	printf(&quot;886 from %d\n&quot;,now);
+	if(a[now].end) printf(&quot;%d is end!\n&quot;,now);
+}
+int main(){
+	pp=read();
+	while(cin&gt;&gt;z[++w]){
+		if(w&gt;=pp) break;
+	}
+	fs(lzl,1,w,1){
+		strcpy(k,z[lzl]);
+		int now=1,l=strlen(k)-1;
+		for(ll i=0;k[i];i++){
+			if(a[now].con[k[i]-'a']){
+				now=a[now].con[k[i]-'a'];
+				if(i==l) a[now].end=1;
+			}else{
+				ans++;
+				a[ans].id=k[i]-'a';
+				a[now].con[k[i]-'a']=ans;
+				now=ans;
+				if(i==l) a[now].end=1;
+			}
+		}
+	}
+	m=read();
+	ans=1;
+	
+	fs(lzl,1,m,1){
+		cin&gt;&gt;k;bool f=0;
+		int now=1,l=strlen(k)-1;
+		for(ll i=0;k[i];i++){
+			//printf(&quot;%d\n&quot;,now);
+			if(a[now].con[k[i]-'a']){
+				now=a[now].con[k[i]-'a'];
+				//printf(&quot;%d\nqwq\n&quot;,now);
+			}else{
+				puts(&quot;WRONG&quot;);
+				f=1;
+				break;
+			} 
+		}
+		if(a[now].end==1&amp;&amp;!f){
+			a[now].end=2;
+			puts(&quot;OK&quot;);
+		}else if(a[now].end==0&amp;&amp;!f){
+			puts(&quot;WRONG&quot;);
+		}else if(!f){
+			puts(&quot;REPEAT&quot;);
+		}
+	}
+	return 0;
+}
+</code></pre>
 ]]></content>
     </entry>
     <entry>
