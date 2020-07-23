@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="萧索，飘摇。">
 <meta name="theme-color" content="#b197fc">
-<title>邻接表板子 | Billy2007&amp;GoneTimeの世界</title>
+<title>染色法判二分图 | Billy2007&amp;GoneTimeの世界</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1595507862411">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -27,7 +27,7 @@
 
 
 
-    <meta name="description" content="邻接表板子" />
+    <meta name="description" content="染色法判二分图" />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -316,8 +316,8 @@
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/lin-jie-biao-ban-zi/">
-      邻接表板子
+    <a class="post-title-link" href="https://ebeo-yvnjiang.github.io/post/ran-se-fa-pan-er-fen-tu/">
+      染色法判二分图
     </a>
   </h1>
   <div class="post-meta">
@@ -325,24 +325,30 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-04-20</span>
+      <span>2020-07-23</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
+      <span>3分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>162<span class="pc-show">字数</span></span>
+      <span>565<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+                <p>给出一张由<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个点，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>条边组成的无向图。</p>
+<p>请你帮忙检查，是否有可能将这<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个点分成两个集合（集合<code>A</code>和集合<code>B</code>），使得这两个集合满足如下要求：</p>
+<p>1.对于某个点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>，它要么在集合<code>A</code>中，要么在集合<code>B</code>中。并且不会同时在两个集合中。</p>
+<p>2.对于某条边<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>，假设它连接的两个点分别为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>。要求点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>和点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>一个在<code>A</code>集合中，一个在<code>B</code>集合中。（即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>在集合<code>A</code>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>在集合<code>B</code>或<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>在集合<code>B</code>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>在集合<code>A</code>）。</p>
+<p>满足的话输出<code>Yes</code>，否则输出<code>No</code>。</p>
+<p>除此之外，二分图的点数是偶数，并且其所有回路的长度是偶数。</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 #define ns &quot;-1&quot;
 #define fs(i,x,y,z) for(ll i=x;i&lt;=y;i+=z)
 #define ft(i,x,y,z) for(ll i=x;i&gt;=y;i+=z)
@@ -352,7 +358,16 @@
 #define ms(a,b) memset(a,b,sizeof(a))
 #define sz(a) sizeof(a)
 using namespace std;
+const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};
 const int N=100001,inf=0x3f3f3f3f;
+const int daynum[]={114514,31,28,31,30,31,30,31,31,30,31,30,31};
+const db E=2.718281828459,pi=acos(-1.0),eps=0.0000000001;
+inline int read(){
+	int date=0,w=1;char c=0;
+	while(c&lt;'0'||c&gt;'9'){if(c=='-')w=-1;c=getchar();}
+	while(c&gt;='0'&amp;&amp;c&lt;='9'){date=date*10+c-'0';c=getchar();}
+	return date*w;
+}
 struct bian{
 	int next,to,w;
 	bian(){
@@ -360,29 +375,43 @@ struct bian{
 		next=0;
 	}
 }e[N];
-int n,m,head[N],totm;
+int n,m,head[N],totm,ans,color[N];
 void add(int s,int ed,int rm=0){
 	e[++totm].next=head[s];
 	e[totm].to=ed;
     e[totm].w=rm;
 	head[s]=totm;
 }
+bool dfs(int now){
+	for(int i=head[now];i;i=e[i].next){
+		int con=e[i].to;
+		if(!color[con]){
+			color[con]=1-color[now];
+			if(!dfs(con)) return 0;
+		}
+		if(color[con]==color[now]) return 0;
+	}
+	return 1;
+}
 int main(){
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
-	cin&gt;&gt;n&gt;&gt;m;
+	n=read(),m=read();
 	fs(i,1,m,1){
-		int u,v;
-		cin&gt;&gt;u&gt;&gt;v;
+		int u,v,w;
+		u=read(),v=read();
 		add(u,v);
 		add(v,u);
 	}
 	totm--;
-	
+	if(dfs(1)) puts(&quot;Yes&quot;);
+	else puts(&quot;No&quot;);
 	return 0;
 }
-
+/*染色法。
+我们给1号节点染上红色，而1的所有邻接点黑，那些邻接点的所有邻接点红……
+红是A集合，黑是B几何。
+如果有一个点既在A里边又在B里边，那么有问题，这玩意不是二分图。
+如果完全没问题，那就OK。
+*/
 </code></pre>
 
               </div>
@@ -394,7 +423,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ebeo-yvnjiang.github.io/post/lin-jie-biao-ban-zi/" title="邻接表板子">邻接表板子</a>
+      <a href="https://ebeo-yvnjiang.github.io/post/ran-se-fa-pan-er-fen-tu/" title="染色法判二分图">染色法判二分图</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -407,15 +436,11 @@ int main(){
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="逆元" href="https://ebeo-yvnjiang.github.io/post/ni-yuan/">逆元</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="逆元" href="https://ebeo-yvnjiang.github.io/post/ni-yuan/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="线性规划" href="https://ebeo-yvnjiang.github.io/post/xian-xing-gui-hua/">线性规划</a>
-        <a class="nav-mobile-next" title="线性规划" href="https://ebeo-yvnjiang.github.io/post/xian-xing-gui-hua/">下一篇</a>
+        <a class="nav-pc-next" title="线性筛代码" href="https://ebeo-yvnjiang.github.io/post/xian-xing-shai-dai-ma/">线性筛代码</a>
+        <a class="nav-mobile-next" title="线性筛代码" href="https://ebeo-yvnjiang.github.io/post/xian-xing-shai-dai-ma/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
