@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ebeo-yvnjiang.github.io</id>
     <title>Billy2007&amp;GoneTimeの世界</title>
-    <updated>2020-07-29T02:48:12.208Z</updated>
+    <updated>2020-08-03T13:11:48.939Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ebeo-yvnjiang.github.io"/>
     <link rel="self" href="https://ebeo-yvnjiang.github.io/atom.xml"/>
@@ -551,11 +551,10 @@ int main(){
 <li>
 <p>具体操作</p>
 <ul>
-<li>如果还有入度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>的点：</li>
-<li>{将入度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>的全部进栈</li>
-<li>将栈顶元素出栈并且删除。</li>
-<li>重复第一部。}</li>
-<li>如果在结束的时候栈里还有元素，那么将栈里的元素逐个出栈到答案序列里。</li>
+<li>将入度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>的全部进队，放到答案序列里</li>
+<li>队列不空？</li>
+<li>取队头元素遍历，遍历到的点入度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span></li>
+<li>如果这些点现在入度是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>了就进队，放到答案序列里</li>
 </ul>
 </li>
 <li>
@@ -573,7 +572,7 @@ int main(){
 #define sz(a) sizeof(a)
 using namespace std;
 const int rw[]={-1,0,1,0,-1,1,-1,1},cl[]={0,1,0,-1,-1,1,1,-1};
-const int N=1001,inf=0x3f3f3f3f;
+const int N=200001,inf=0x3f3f3f3f;
 const int daynum[]={114514,31,28,31,30,31,30,31,31,30,31,30,31};
 const db E=2.718281828459,pi=acos(-1.0),eps=0.0000000001;
 inline int read(){
@@ -582,39 +581,52 @@ inline int read(){
 	while(c&gt;='0'&amp;&amp;c&lt;='9'){date=date*10+c-'0';c=getchar();}
 	return date*w;
 }
-int n,a[N][N],c[N],cd[N],r[N],m,canu[N];
-int s[N],top;
+int n,r[N],m,head[N],totm;
 int tot,ans[N];
+queue&lt;int&gt; q;
+struct bian{
+	int next,to,w;
+	bian(){
+        w=0;
+		next=0;
+	}
+}e[N];
+void add(int s,int ed,int rm=0){
+	e[++totm].next=head[s];
+	e[totm].to=ed;
+    e[totm].w=rm;
+	head[s]=totm;
+}
 int main(){
 	n=read(),m=read();
 	fs(i,1,m,1){
 		int u=read(),v=read();
-		a[u][++c[u]]=v;
+		add(u,v);
 		r[v]++;
 	}
-	while(1){
-		bool f=1;
-		fs(i,1,n,1){
-			if(!r[i]&amp;&amp;!canu[i]){
-				s[++top]=i;
-				f=0;
-			} 
+	fs(i,1,n,1){
+		if(!r[i]){
+			q.push(i);
+			ans[++tot]=i;
 		}
-		int k=s[top--];
-		ans[++tot]=k;
-		canu[k]=1;
-		fs(i,1,c[k],1){
-			r[a[k][i]]--;
+	}
+	while(!q.empty()){
+		int now=q.front();
+		q.pop();
+		for(int i=head[now];i;i=e[i].next){
+			int v=e[i].to;
+			r[v]--;
+			if(!r[v]){
+				q.push(v);
+				ans[++tot]=v;
+			}
 		}
-		if(f) break;
 	}
-	while(top&gt;=0){
-		ans[++tot]=s[top--];
+	if(tot&lt;n){
+		puts(&quot;-1&quot;);//有环 
+		return 0;
 	}
-	if(tot&lt;n) puts(&quot;-1&quot;);
-	else{
-		fs(i,1,n,1) printf(&quot;%d &quot;,ans[i]);
-	}
+	fs(i,1,n,1) printf(&quot;%d &quot;,ans[i]);
 	return 0;
 }
 </code></pre>
