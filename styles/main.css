@@ -1994,37 +1994,37 @@ blockquote {
         margin: 0 auto;
       }
     body {
-      color: #f76707;
+      color: #1c7ed6;
     }
     .next-md-body {
-      color: #f76707;
+      color: #1c7ed6;
     }
     .next-md-body h1, .next-md-body h2 {
-      border-bottom-color: #f76707;
+      border-bottom-color: #1c7ed6;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #f7670772;
+      background: #a9e34b99;
     }h1, h2, h3, h4, h5, h6 {
-      color: #f03e3e;
+      color: #40c057;
     }
     
     .archive-timeline-title::before {
-      background-color: #f03e3e;
+      background-color: #40c057;
     }
     
     .post-title-link::before {
-      background-color: #f03e3e;
+      background-color: #40c057;
     }
     
     .node-title::before {
-      background-color: #f03e3e;
+      background-color: #40c057;
     }a {
-      color: #66d9e8;
+      color: #37b24d;
     }
     
     .next-md-body a, .friends-box a  {
-      color: #66d9e8;
-      border-bottom: 1px solid #66d9e8;
+      color: #37b24d;
+      border-bottom: 1px solid #37b24d;
     }a:hover {
       color: #9775fa;
     }
@@ -2047,11 +2047,11 @@ blockquote {
       }.nav-item a:hover {
         color: #748ffc;
       }.nav-item-active {
-      background: #99e9f272;
+      background: #99e9f299;
     }
 
     .nav-item:hover {
-      background: #99e9f272;
+      background: #99e9f299;
       color: rgba(0, 0, 0, 0.98);
     }.site-author-image {
       border-radius: 50%;
@@ -2087,7 +2087,7 @@ blockquote {
       color: #fc6423;
       border-bottom-color: #fc6423;
     }.bg-color {
-      background-color: #3bc9db72;
+      background-color: #e6770099;
     }
       .site-meta {
         background: #b197fc !important;
@@ -2096,7 +2096,7 @@ blockquote {
         background: #b197fc !important;
       }
     .brand {
-      background: #96f2d772;
+      background: #96f2d799;
     }
     
       .brand {
@@ -2106,7 +2106,7 @@ blockquote {
       color: #66d9e8;
     }
     .mist .site-title i {
-      background: #66d9e872;
+      background: #66d9e899;
     }.box-scale > #landlord {
       transform: scale(1);
     }.box-shadow-wrapper {
