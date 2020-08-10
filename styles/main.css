@@ -1994,13 +1994,13 @@ blockquote {
         margin: 0 auto;
       }
     body {
-      color: #1c7ed6;
+      color: #364fc7;
     }
     .next-md-body {
-      color: #1c7ed6;
+      color: #364fc7;
     }
     .next-md-body h1, .next-md-body h2 {
-      border-bottom-color: #1c7ed6;
+      border-bottom-color: #364fc7;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
       background: #a9e34b99;
@@ -2087,7 +2087,7 @@ blockquote {
       color: #fc6423;
       border-bottom-color: #fc6423;
     }.bg-color {
-      background-color: #e6770099;
+      background-color: #c92a2a99;
     }
       .site-meta {
         background: #b197fc !important;
